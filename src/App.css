@@ -1,0 +1,4 @@
+/* Glow effect for navbar links */
+.glow-nav {
+  text-shadow: 0 0 8px #ffffff, 0 0 16px #ffffff, 0 0 24px #ffffff;
+}
