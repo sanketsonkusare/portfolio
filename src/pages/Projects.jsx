@@ -12,7 +12,7 @@ const projects = [
     stack: 'React, Vite, Tailwind CSS, DaisyUI, Zustand, Socket.IO, React Markdown',
     description: 'A modern real-time chat application with integrated AI assistant, built with React, Node.js, Socket.IO, and OpenRouter AI.',
     github: 'https://github.com/sanketsonkusare/Convo',
-    live: 'https://projects.sanketsonkusare.me/convo',
+    live: 'https://sanketsonkusare.me/projects/convo',
   },
   {
     image: apiWrapperImage,
@@ -28,7 +28,7 @@ const projects = [
     stack: 'React, Node.js, Tailwind, Express.js, MongoDB, JWT',
     description: 'A modern full-stack blog platform built with the MERN stack and styled with Tailwind CSS. It allows users to read, write, like, and comment on blog posts.',
     github: 'https://github.com/sanketsonkusare/Wordwave',
-    live: 'https://projects.sanketsonkusare.me/wordwave',
+    live: 'https://sanketsonkusare.me/projects/wordwave',
   },
   {
     image: wanderlustImage,
@@ -36,7 +36,7 @@ const projects = [
     stack: 'Node.js, Express.js, MongoDB, Passport.js, Multer',
     description: 'A full-stack web application designed to help users explore and list various travel destinations. The application allows users to create, edit, and delete travel destination listings, leave reviews, and view locations on an interactive map.',
     github: 'https://github.com/sanketsonkusare/Wanderlust',
-    live: 'https://projects.sanketsonkusare.me/wanderlust',
+    live: 'https://sanketsonkusare.me/projects/wanderlust',
   },
   {
     image: cursorImage,
