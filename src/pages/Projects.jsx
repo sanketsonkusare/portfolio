@@ -1,6 +1,13 @@
+// Import project images
+import convoImage from '../assets/convo.png';
+import apiWrapperImage from '../assets/apiwrapper.png';
+import wordwaveImage from '../assets/wordwave.png';
+import wanderlustImage from '../assets/wanderlust.png';
+import cursorImage from '../assets/cursor.png';
+
 const projects = [
   {
-    image: 'src/assets/convo.png',
+    image: convoImage,
     title: 'Convo',
     stack: 'React, Vite, Tailwind CSS, DaisyUI, Zustand, Socket.IO, React Markdown',
     description: 'A modern real-time chat application with integrated AI assistant, built with React, Node.js, Socket.IO, and OpenRouter AI.',
@@ -8,7 +15,7 @@ const projects = [
     live: 'https://projects.sanketsonkusare.me/convo',
   },
   {
-    image: '/src/assets/apiwrapper.png',
+    image: apiWrapperImage,
     title: 'GithubAPI wrapper',
     stack: 'Node.js',
     description: 'A lightweight and easy-to-use Node.js wrapper for the GitHub REST API v3. This wrapper simplifies interactions with various GitHub resources such as users, repositories, issues, pull requests, and more.',
@@ -16,7 +23,7 @@ const projects = [
     live: 'https://www.npmjs.com/package/@sassysanket/github-wrapper',
   },
   {
-    image: '/src/assets/wordwave.png',
+    image: wordwaveImage,
     title: 'Wordwave',
     stack: 'React, Node.js, Tailwind, Express.js, MongoDB, JWT',
     description: 'A modern full-stack blog platform built with the MERN stack and styled with Tailwind CSS. It allows users to read, write, like, and comment on blog posts.',
@@ -24,7 +31,7 @@ const projects = [
     live: 'https://projects.sanketsonkusare.me/wordwave',
   },
   {
-    image: '/src/assets/wanderlust.png',
+    image: wanderlustImage,
     title: 'Wanderlust',
     stack: 'Node.js, Express.js, MongoDB, Passport.js, Multer',
     description: 'A full-stack web application designed to help users explore and list various travel destinations. The application allows users to create, edit, and delete travel destination listings, leave reviews, and view locations on an interactive map.',
@@ -32,7 +39,7 @@ const projects = [
     live: 'https://projects.sanketsonkusare.me/wanderlust',
   },
   {
-    image: '/src/assets/cursor.png',
+    image: cursorImage,
     title: 'Hand cursor control',
     stack: 'Python, OpenCV, MediaPipe',
     description: 'This Python script demonstrates real-time hand cursor control with click and right-click functionality using MediaPipe and PyAutoGUI libraries.',

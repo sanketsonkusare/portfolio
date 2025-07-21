@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import logo from "../assets/S_logo.png";
 
 
 
@@ -46,7 +47,7 @@ function Navbar({ menuOpen, setMenuOpen, theme, setTheme }) {
     <nav className={`fixed top-0 left-0 w-full z-50 shadow-sm transition-colors duration-300 ${theme === "dark" ? "bg-[#272727] bg-opacity-90" : "bg-white"}`}>
       <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/">
-          <img className="w-12 h-12 object-contain" src="/src/assets/S_logo.png" alt="Logo" />
+          <img className="w-12 h-12 object-contain" src={logo} alt="Logo" />
         </Link>
         <div className="flex items-center gap-4">
           {/* Theme Toggle First */}

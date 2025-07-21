@@ -1,23 +1,40 @@
 
 import { useState, useEffect } from "react";
 
+// Import medal images
+import medal1 from '../assets/medal/i1.jpg';
+import medal2 from '../assets/medal/i2.jpg';
+import medal3 from '../assets/medal/i3.jpg';
+import medal4 from '../assets/medal/i4.jpg';
+import medal5 from '../assets/medal/i5.jpg';
+
+// Import journey images
+import journey1 from '../assets/journey/1.jpg';
+import journey2 from '../assets/journey/2.jpg';
+import journey3 from '../assets/journey/3.jpg';
+import journey4 from '../assets/journey/4.jpg';
+import journey5 from '../assets/journey/5.jpg';
+import journey6 from '../assets/journey/6.jpg';
+import journey7 from '../assets/journey/7.jpg';
+import journey8 from '../assets/journey/8.jpg';
+
 const medalImages = [
-  '/src/assets/medal/i1.jpg',
-  '/src/assets/medal/i2.jpg',
-  '/src/assets/medal/i3.jpg',
-  '/src/assets/medal/i4.jpg',
-  '/src/assets/medal/i5.jpg',
+  medal1,
+  medal2,
+  medal3,
+  medal4,
+  medal5,
 ];
 
 const journeyImages = [
-  '/src/assets/journey/1.jpg',
-  '/src/assets/journey/2.jpg',
-  '/src/assets/journey/3.jpg',
-  '/src/assets/journey/4.jpg',
-  '/src/assets/journey/5.jpg',
-  '/src/assets/journey/6.jpg',
-  '/src/assets/journey/7.jpg',
-  '/src/assets/journey/8.jpg',
+  journey1,
+  journey2,
+  journey3,
+  journey4,
+  journey5,
+  journey6,
+  journey7,
+  journey8,
 ];
 function Built({ theme }) {
 
