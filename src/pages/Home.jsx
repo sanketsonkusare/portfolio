@@ -1,4 +1,5 @@
 import profilePic from "../assets/1000136928.jpg";
+import resumePDF from '../assets/Sanket_Sonkusare_Resume.pdf';
 
 function Home({ theme }) {
   return (
@@ -60,7 +61,7 @@ function Home({ theme }) {
             {/* Resume Download Button */}
             <div className="mt-6">
               <a
-                href="/src/assets/Sanket_Sonkusare_Resume.pdf"
+                href={resumePDF}
                 download
                 className="inline-block px-6 py-2 rounded-lg bg-red-400 text-white text-sm md:text-xl font-semibold shadow hover:bg-red-600 transition"
               >
