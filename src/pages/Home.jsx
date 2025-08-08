@@ -16,7 +16,7 @@ function Home({ theme }) {
             </h1>
             <div className=" h-1 bg-red-400 rounded mb-6" />
             <p className={`text-sm md:text-2xl max-w-xl ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}>
-              An <span className="font-bold text-red-400">AI Engineer</span> crafting the future through Design, Development, Data, and
+              An <span className="text-red-400">AI Engineer</span> crafting the future through Design, Development, Data, and
               Discipline.
             </p>
             {/* Social Icons */}
