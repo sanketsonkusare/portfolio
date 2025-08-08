@@ -16,7 +16,7 @@ function Home({ theme }) {
             </h1>
             <div className=" h-1 bg-red-400 rounded mb-6" />
             <p className={`text-sm md:text-2xl max-w-xl ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}>
-              Crafting the future through Design, Development, Data, and
+              An <span className="font-bold text-red-400">AI Engineer</span> crafting the future through Design, Development, Data, and
               Discipline.
             </p>
             {/* Social Icons */}
@@ -85,9 +85,9 @@ function Home({ theme }) {
           <h1 className={`text-2xl md:text-4xl font-bold mt-16 ${theme === "dark" ? "text-white" : "text-black"}`}>
             About me
           </h1>
-          <div className={`my-10 text-sm/5 md:text-2xl/10 mx-4 md:mx-10 ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}>
+          <div className={`my-10 text-sm/5 md:text-2xl/10 mx-4 md:mx-10 text-justify ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}>
             <p>
-              I'm currently immersing myself in the world of Data Science as an
+              I'm currently working as an <span className="font-bold">AI Engineer at ScroBits Technologies</span> and had immersed myself in the world of Data Science as an
               MTech student, driven by a passion for building intelligent
               systems with Machine Learning and Deep Learning.
             </p>
