@@ -50,44 +50,6 @@ function Navbar({ menuOpen, setMenuOpen, theme, setTheme }) {
           <img className="w-12 h-12 object-contain" src={logo} alt="Logo" />
         </Link>
         <div className="flex items-center gap-4">
-          {/* Theme Toggle First */}
-          <button
-            aria-label="Toggle Dark Mode"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="mr-2 sm:mr-0 px-1 cursor-pointer flex items-center justify-center"
-            tabIndex={0}
-            type="button"
-          >
-            {theme === "dark" ? (
-              // Lightning icon for light mode
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7 text-gray-400 cursor-pointer"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                tabIndex={-1}
-                pointerEvents="none"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 2L3 14h7v8l8-12h-7z" />
-              </svg>
-            ) : (
-              // Moon icon for dark mode
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7 text-gray-600 cursor-pointer"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                tabIndex={-1}
-                pointerEvents="none"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
-              </svg>
-            )}
-          </button>
           {/* Hamburger for mobile */}
           <div className="sm:hidden">
             <button
@@ -115,6 +77,22 @@ function Navbar({ menuOpen, setMenuOpen, theme, setTheme }) {
           >
             <div className={`${theme === "dark" ? "bg-[#272727] opacity-75" : "bg-white opacity-95"} w-full h-full absolute sm:hidden top-0 left-0 z-[-1]`} />
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center w-full sm:w-auto relative">
+              <div
+                className="w-full sm:w-auto cursor-pointer"
+                onClick={() => { setMenuOpen(false); }}
+              >
+                <a
+                  href="https://blog.sanketsonkusare.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block w-full text-right transition px-3 py-1 rounded-lg ${
+                    theme === "dark" ? 'text-white hover:text-red-400' : 'text-black hover:text-red-400'
+                  }`}
+                  tabIndex={-1}
+                >
+                  Blogs
+                </a>
+              </div>
               <div
                 className="w-full sm:w-auto cursor-pointer"
                 onClick={() => { setMenuOpen(false); navigate('/projects'); }}
@@ -152,7 +130,7 @@ function Navbar({ menuOpen, setMenuOpen, theme, setTheme }) {
                   }
                   tabIndex={-1}
                 >
-                  Resume
+                  Experience
                 </NavLink>
               </div>
               <div
@@ -197,6 +175,44 @@ function Navbar({ menuOpen, setMenuOpen, theme, setTheme }) {
               </div>
             </div>
           </div>
+          {/* Theme Toggle First */}
+          <button
+            aria-label="Toggle Dark Mode"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="mr-2 sm:mr-0 px-1 cursor-pointer flex items-center justify-center"
+            tabIndex={0}
+            type="button"
+          >
+            {theme === "dark" ? (
+              // Lightning icon for light mode
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-7 w-7 text-gray-400 cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                tabIndex={-1}
+                pointerEvents="none"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 2L3 14h7v8l8-12h-7z" />
+              </svg>
+            ) : (
+              // Moon icon for dark mode
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-7 w-7 text-gray-600 cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                tabIndex={-1}
+                pointerEvents="none"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
     </nav>
