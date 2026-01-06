@@ -12,7 +12,7 @@ const projects = [
     stack: 'React, Vite, Tailwind CSS, DaisyUI, Zustand, Socket.IO, React Markdown',
     description: 'A modern real-time chat application with integrated AI assistant, built with React, Node.js, Socket.IO, and OpenRouter AI.',
     github: 'https://github.com/sanketsonkusare/Convo',
-    live: 'https://projects.sanketsonkusare.me/convo',
+    live: 'https://convo.sanketsonkusare.me/',
   },
   {
     image: apiWrapperImage,
@@ -28,7 +28,7 @@ const projects = [
     stack: 'React, Node.js, Tailwind, Express.js, MongoDB, JWT',
     description: 'A modern full-stack blog platform built with the MERN stack and styled with Tailwind CSS. It allows users to read, write, like, and comment on blog posts.',
     github: 'https://github.com/sanketsonkusare/Wordwave',
-    live: 'https://projects.sanketsonkusare.me/wordwave',
+    live: 'https://wordwave.sanketsonkusare.me/',
   },
   {
     image: wanderlustImage,
