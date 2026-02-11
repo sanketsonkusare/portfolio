@@ -1,11 +1,10 @@
 
 // Import resume assets
-import resumeImage from '../assets/Sanket_Sonkusare_Resume.jpg';
 import resumePDF from '../assets/Sanket_Sonkusare_Resume.pdf';
 
 function Resume({ theme }) {
   return (
-    <div className={`min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-10 ${theme === "dark" ? "text-white" : "text-black"}`}> 
+    <div className={`min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-10 ${theme === "dark" ? "text-white" : "text-black"}`}>
       <h1 className="text-xl md:text-4xl font-bold mb-4 mt-20 text-red-400">Experience</h1>
       {/* Floating Download Button (bottom-left) */}
       <a
@@ -53,9 +52,9 @@ function Resume({ theme }) {
           <h2 className="text-lg md:text-xl font-bold text-red-400">AI Engineer <span className="text-sm font-medium text-gray-400">| Scrobits Technologies</span></h2>
           <p className="text-sm text-gray-400 mb-3">Aug 2025 – Present</p>
           <ul className="list-disc pl-5 space-y-2 text-sm">
-            <li><span className="font-semibold">Resilient Multi-Agent Systems:</span> Orchestrated a stateful multi-agent workflow featuring 3-stage fallback mechanisms and profanity guardrails, reducing system failure rates to 0.1%.</li>
-            <li><span className="font-semibold">Microservices Architecture:</span> Designed a modular backend using FastAPI, decoupling real-time message handling from data vectorization to optimize load distribution.</li>
-            <li><span className="font-semibold">Observability &amp; Cost Optimization:</span> Integrated LangSmith to track token usage, latency, and cost-per-query in real-time.</li>
+            <li>Built an Agentic Enterprise RAG system using FastAPI, LangGraph, and Pinecone, enabling multitenant semantic search, human-in-loop escalation, and real-time dashboards, reducing query time by 60% and token usage by 40% used FastMCP for tools and prompts.</li>
+            <li>Built a multi-agent AI support chatbot using FastAPI, LangGraph, Pinecone, and Google Gemini, achieving 95% query routing accuracy, 40% latency reduction, real-time human escalation, and zeroconfig embeddable deployment.</li>
+            <li>Engineered and deployed a multi-agent AI system using LangChain, Gemini, and RAG with pinecone DB, integrating Retriever and Query agents via FastAPI and WhatsApp webhook for a Media Monitoring & Knowledge Assistant.</li>
           </ul>
         </div>
 

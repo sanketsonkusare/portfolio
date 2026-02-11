@@ -109,10 +109,11 @@ function Home({ theme }) {
               <pre className={`p-4 text-xs font-mono whitespace-pre overflow-x-auto ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}>
                 <code>
                   {`const stack = {
-                  frontend: ['React', 'Tailwind CSS', 'JavaScript'],
-                  backend: ['Node.js', 'Express.js', 'MongoDB'],
-                  ml_ai: ['Python', 'TensorFlow', 'Scikit-Learn','FastAPI'],
-                  tools: ['Git', 'VS Code', 'Jupyter', 'Postman']
+                  lang:   ['Python', 'Java', 'C++', 'R'],
+                  dev:    ['MERN Stack'],
+                  AI:     ['RAG', 'Multi-Agent AI', 'LangChain', 'LangGraph', 'NLP', 'FastMCP'],
+                  ML:     ['Supervised/Unsupervised ML', 'MediaPipe', 'Data Engineering'],
+                  others: ['Docker', 'AWS', 'Redis']
                 };`}
                 </code>
               </pre>
