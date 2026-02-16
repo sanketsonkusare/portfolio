@@ -1,167 +1,151 @@
-
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Import medal images
-import medal1 from '../assets/medal/i1.jpg';
-import medal2 from '../assets/medal/i2.jpg';
-import medal3 from '../assets/medal/i3.jpg';
-import medal4 from '../assets/medal/i4.jpg';
-import medal5 from '../assets/medal/i5.jpg';
+import medal1 from "../assets/medal/i1.jpg";
+import medal2 from "../assets/medal/i2.jpg";
+import medal3 from "../assets/medal/i3.jpg";
+import medal4 from "../assets/medal/i4.jpg";
+import medal5 from "../assets/medal/i5.jpg";
 
-// Import journey images
-import journey1 from '../assets/journey/1.jpg';
-import journey2 from '../assets/journey/2.jpg';
-import journey3 from '../assets/journey/3.jpg';
-import journey4 from '../assets/journey/4.jpg';
-import journey5 from '../assets/journey/5.jpg';
-import journey6 from '../assets/journey/6.jpg';
-import journey7 from '../assets/journey/7.jpg';
-import journey8 from '../assets/journey/8.jpg';
+import journey1 from "../assets/journey/1.jpg";
+import journey2 from "../assets/journey/2.jpg";
+import journey3 from "../assets/journey/3.jpg";
+import journey4 from "../assets/journey/4.jpg";
+import journey5 from "../assets/journey/5.jpg";
+import journey6 from "../assets/journey/6.jpg";
+import journey7 from "../assets/journey/7.jpg";
+import journey8 from "../assets/journey/8.jpg";
 
-const medalImages = [
-  medal1,
-  medal2,
-  medal3,
-  medal4,
-  medal5,
-];
+const medalImages = [medal1, medal2, medal3, medal4, medal5];
+const journeyImages = [journey1, journey2, journey3, journey4, journey5, journey6, journey7, journey8];
 
-const journeyImages = [
-  journey1,
-  journey2,
-  journey3,
-  journey4,
-  journey5,
-  journey6,
-  journey7,
-  journey8,
-];
-function Built({ theme }) {
-
-  // Slideshow state for medals
-  const [medalIndex, setMedalIndex] = useState(0);
+function Slideshow({ images, alt }) {
+  const [index, setIndex] = useState(0);
   useEffect(() => {
-    const interval = setInterval(() => {
-      setMedalIndex((prev) => (prev + 1) % medalImages.length);
-    }, 2000);
+    const interval = setInterval(() => setIndex((p) => (p + 1) % images.length), 3000);
     return () => clearInterval(interval);
-  }, []);
-
-  // Slideshow state for journey images
-  const [journeyIndex, setJourneyIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setJourneyIndex((prev) => (prev + 1) % journeyImages.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
   return (
-    <div className={`min-h-screen mt-20 w-full flex flex-col items-center justify-start px-4 md:px-8 py-10 ${theme === "dark" ? "text-white" : "text-black"}`}>
-      <h1 className={`text-xl md:text-4xl font-bold mb-6 ${theme === "dark" ? "text-red-400" : "text-red-500"}`}>
-        My Bodybuilding Story
-      </h1>
-      <p className={`text-sm md:text-lg max-w-3xl mb-15 text-left ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}>
-        Welcome to the 'Built' section, where I share my dedication to physical
-        strength and mental discipline. For me, bodybuilding isn't just a hobby;
-        it's a parallel journey of growth, resilience, and continuous
-        improvement, much like my work in tech.
-      </p>
+    <div className="relative w-full h-full rounded-xl overflow-hidden" style={{ background: "#111" }}>
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={index}
+          src={images[index]}
+          alt={alt}
+          className="absolute inset-0 w-full h-full object-contain"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        />
+      </AnimatePresence>
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`w-1.5 h-1.5 rounded-full transition-all ${i === index ? "bg-white w-3" : "bg-white/40"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
-      {/* Achievements Section (heading full width, content split) */}
-      <section className="w-full max-w-5xl mb-16">
-        <h2 className="text-xl md:text-2xl font-bold text-red-400 mb-8 w-full">
-          Achievements
-        </h2>
-        <div className="flex flex-col md:flex-row gap-8 w-full">
-          {/* Left: Card with medal image and text */}
-          <div className="flex-1 flex flex-col items-center md:items-start">
-            <div className={`w-full max-w-xs h-95 rounded-lg flex flex-col items-center justify-center p-4 mb-4 md:mb-0 border-2 border-red-400
-              ${theme === "dark" ? "bg-gray-800 border-gray-700" : "bg-white border-gray-300"}`}>
-              {/* Replace src with your medal image path */}
+function Built({ theme }) {
+  const isDark = theme === "dark";
+
+  return (
+    <div className="min-h-screen px-5 py-10">
+      <div className="max-w-3xl mx-auto pt-16">
+        <motion.h1
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="text-2xl md:text-3xl font-bold mb-2"
+        >
+          Built Different 💪
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1, duration: 0.4 }}
+          className={`text-sm mb-10 ${isDark ? "text-[#a0a0a0]" : "text-gray-500"}`}
+        >
+          My bodybuilding story — discipline, resilience, and continuous improvement.
+        </motion.p>
+
+        {/* Achievement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.4 }}
+          className="mb-10"
+        >
+          <h2 className="section-title">🏆 Achievement</h2>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className={`exp-card flex-1 flex flex-col items-center justify-center py-8`}>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/625/625395.png"
                 alt="Medal"
-                className="w-60 h-60 object-contain rounded mb-2"
+                className="w-24 h-24 object-contain mb-3"
               />
-              <span className={`text-xs md:text-lg text-center w-full font-semibold mt-6 ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}>
-                Silver Medalist: University Bodybuilding Competition 2023!
-              </span>
+              <p className={`text-sm text-center font-medium ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}>
+                🥈 Silver Medalist — University Bodybuilding 2023
+              </p>
+            </div>
+            <div className="flex-1 aspect-[4/3] rounded-xl overflow-hidden border" style={{ borderColor: isDark ? "#333" : "#e0e0e0" }}>
+              <Slideshow images={medalImages} alt="Medal photos" />
             </div>
           </div>
-          {/* Right: Slideshow placeholder */}
-          <div className="flex-1 flex items-center justify-center w-full">
-            {/* Replace with your image slider logic or a library */}
-            <div className={`w-full max-w-xs h-95 rounded-lg flex items-center justify-center text-xs md:text-base border-2 border-red-400
-              ${theme === "dark" ? "bg-gray-800 text-gray-400" : "bg-white text-gray-600 border-gray-300"}`}>
-              {/* Slideshow: loop through medalImages */}
-              <img
-                src={medalImages[medalIndex]}
-                alt="Medal"
-                className="w-full h-full object-cover rounded-lg transition-all duration-500"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* Bodybuilding Journey Section (heading full width, content split) */}
-      <section className="w-full max-w-5xl mb-16 mt-15">
-        <h2 className="text-xl md:text-2xl font-bold text-red-400 mb-8 w-full">
-          My Bodybuilding Journey
-        </h2>
-        <div className="flex flex-col md:flex-row gap-8 w-full">
-          {/* Left: Text */}
-          <div className="flex-1 flex flex-col items-center md:items-start">
-            <p className={`text-sm md:text-base ${theme === "dark" ? "text-gray-300" : "text-gray-700"}`}>
-              My fitness journey began as a skinny kid in school, eager to play
-              but lacking in sports. I started home workouts, and despite slow
-              progress, my determination never faded. After two years, I saw my
-              first visible changes.
-              <br />
-              <br />
-              In college, the college gym became my second home, quickly leading
-              to noticeable shape improvements. Post-pandemic, I joined a local
-              gym, learning proper training and diet from general trainers. After
-              a year of intense dedication, I competed, proudly securing second
-              place at the Pune University matches.
-              <br />
-              <br />
-              Today, I'm relentlessly preparing for the national stage. My
-              transformation is a testament to consistency, hard work, and the
-              power of building both body and mind.
-            </p>
-          </div>
-          {/* Right: Slideshow placeholder */}
-          <div className="flex-1 flex items-center justify-center w-full ">
-            {/* Replace with your image slider logic or a library */}
-            <div className="w-full max-w-xs h-95 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 text-xs md:text-base border-2 border-red-400">
-              {/* Slideshow: loop through journeyImages */}
-              <img
-                src={journeyImages[journeyIndex]}
-                alt="Journey"
-                className="w-full h-full object-cover rounded-lg transition-all duration-500"
-              />
+        {/* Journey */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.4 }}
+          className="mb-10"
+        >
+          <h2 className="section-title">🏋️ Journey</h2>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className={`flex-1 text-xs leading-relaxed space-y-3 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}>
+              <p>
+                My fitness journey began as a skinny kid in school. I started home workouts, and despite slow progress, my determination never faded. After two years, I saw my first visible changes.
+              </p>
+              <p>
+                In college, the gym became my second home. Post-pandemic, I joined a local gym, learning proper training and diet. After a year of intense dedication, I secured second place at the Pune University matches.
+              </p>
+              <p>
+                Today, I'm preparing for the national stage. My transformation is a testament to consistency, hard work, and the power of building both body and mind.
+              </p>
+            </div>
+            <div className="flex-1 aspect-[4/3] rounded-xl overflow-hidden border" style={{ borderColor: isDark ? "#333" : "#e0e0e0" }}>
+              <Slideshow images={journeyImages} alt="Journey photos" />
             </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
 
-      {/* Instagram Feed Section */}
-      <section className="w-full max-w-5xl flex flex-col items-center mt-10 mb-8">
-        <h2 className="text-xl md:text-2xl font-bold text-red-400 mb-4">
-          Instagram Feed
-        </h2>
-        <div className="w-full rounded-lg overflow-hidden border border-gray-700 bg-[#181818]">
-          <iframe
-            src="https://www.instagram.com/sassysanket/embed/"
-            title="Instagram Feed"
-            className="w-full h-[500px] md:h-[600px]"
-            style={{ border: "none" }}
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-          ></iframe>
-        </div>
-      </section>
+        {/* Instagram */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.4 }}
+          className="mb-8"
+        >
+          <h2 className="section-title">📸 Instagram</h2>
+          <div className="rounded-xl overflow-hidden border" style={{ borderColor: isDark ? "#333" : "#e0e0e0" }}>
+            <iframe
+              src="https://www.instagram.com/sassysanket/embed/"
+              title="Instagram Feed"
+              className="w-full h-[450px] md:h-[550px]"
+              style={{ border: "none" }}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+            ></iframe>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }

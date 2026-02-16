@@ -1,98 +1,132 @@
-// Import project images
-import convoImage from '../assets/convo.png';
-import apiWrapperImage from '../assets/apiwrapper.png';
-import wordwaveImage from '../assets/wordwave.png';
-import wanderlustImage from '../assets/wanderlust.png';
-import cursorImage from '../assets/cursor.png';
+import { motion } from "framer-motion";
+import autovoyce from "../assets/autovoyce.png";
+import convoImage from "../assets/convo.png";
+import apiWrapperImage from "../assets/apiwrapper.png";
+import wordwaveImage from "../assets/wordwave.png";
+import wanderlustImage from "../assets/wanderlust.png";
+import cursorImage from "../assets/cursor.png";
 
 const projects = [
   {
+    image: autovoyce,
+    title: "AutoVoyce",
+    stack: "FastAPI · LangChain · Pinecone · Google Gemini · ElevenLabs · AWS EC2 · React · Vite",
+    description: "Talk to YouTube, not just watch it. AutoVoyce analyzes videos, remembers context, and lets you ask questions via chat or voice with multi-video cross-reasoning.",
+    github: "https://github.com/sanketsonkusare/AutoVoyce",
+    live: "https://autovoyce.sanketsonkusare.me/",
+  },
+  {
     image: convoImage,
-    title: 'Convo',
-    stack: 'React, Vite, Tailwind CSS, DaisyUI, Zustand, Socket.IO, React Markdown',
-    description: 'A modern real-time chat application with integrated AI assistant, built with React, Node.js, Socket.IO, and OpenRouter AI.',
-    github: 'https://github.com/sanketsonkusare/Convo',
-    live: 'https://convo.sanketsonkusare.me/',
+    title: "Convo",
+    stack: "React · Vite · Tailwind · Socket.IO · Zustand",
+    description: "A modern real-time chat application with integrated AI assistant, built with React, Node.js, Socket.IO, and OpenRouter AI.",
+    github: "https://github.com/sanketsonkusare/Convo",
+    live: "https://convo.sanketsonkusare.me/",
   },
   {
     image: apiWrapperImage,
-    title: 'GithubAPI wrapper',
-    stack: 'Node.js',
-    description: 'A lightweight and easy-to-use Node.js wrapper for the GitHub REST API v3. This wrapper simplifies interactions with various GitHub resources such as users, repositories, issues, pull requests, and more.',
-    github: 'https://github.com/sanketsonkusare/github-wrapper',
-    live: 'https://www.npmjs.com/package/@sassysanket/github-wrapper',
+    title: "GithubAPI Wrapper",
+    stack: "Node.js · npm",
+    description: "A lightweight Node.js wrapper for the GitHub REST API v3. Simplifies interactions with users, repos, issues, and pull requests.",
+    github: "https://github.com/sanketsonkusare/github-wrapper",
+    live: "https://www.npmjs.com/package/@sassysanket/github-wrapper",
   },
   {
     image: wordwaveImage,
-    title: 'Wordwave',
-    stack: 'React, Node.js, Tailwind, Express.js, MongoDB, JWT',
-    description: 'A modern full-stack blog platform built with the MERN stack and styled with Tailwind CSS. It allows users to read, write, like, and comment on blog posts.',
-    github: 'https://github.com/sanketsonkusare/Wordwave',
-    live: 'https://wordwave.sanketsonkusare.me/',
+    title: "Wordwave",
+    stack: "React · Node.js · Express · MongoDB · JWT",
+    description: "A full-stack blog platform built with the MERN stack. Users can read, write, like, and comment on blog posts.",
+    github: "https://github.com/sanketsonkusare/Wordwave",
+    live: "https://wordwave.sanketsonkusare.me/",
   },
   {
     image: wanderlustImage,
-    title: 'Wanderlust',
-    stack: 'Node.js, Express.js, MongoDB, Passport.js, Multer',
-    description: 'A full-stack web application designed to help users explore and list various travel destinations. The application allows users to create, edit, and delete travel destination listings, leave reviews, and view locations on an interactive map.',
-    github: 'https://github.com/sanketsonkusare/Wanderlust',
-    live: 'https://projects.sanketsonkusare.me/wanderlust',
+    title: "Wanderlust",
+    stack: "Node.js · Express · MongoDB · Passport.js",
+    description: "A full-stack app to explore and list travel destinations with creation, editing, reviews, and interactive maps.",
+    github: "https://github.com/sanketsonkusare/Wanderlust",
+    live: "https://projects.sanketsonkusare.me/wanderlust",
   },
   {
     image: cursorImage,
-    title: 'Hand cursor control',
-    stack: 'Python, OpenCV, MediaPipe',
-    description: 'This Python script demonstrates real-time hand cursor control with click and right-click functionality using MediaPipe and PyAutoGUI libraries.',
-    github: 'https://github.com/sanketsonkusare/Hand-cursor-control',
-    live: 'https://gifsec.com/wp-content/uploads/2022/10/rickroll-gif-7.gif',
+    title: "Hand Cursor Control",
+    stack: "Python · OpenCV · MediaPipe",
+    description: "Real-time hand cursor control with click and right-click functionality using MediaPipe and PyAutoGUI.",
+    github: "https://github.com/sanketsonkusare/Hand-cursor-control",
+    live: "https://gifsec.com/wp-content/uploads/2022/10/rickroll-gif-7.gif",
   },
 ];
 
 function Projects({ theme }) {
+  const isDark = theme === "dark";
+
   return (
-    <div className={`min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 py-10 ${theme === "dark" ? "text-white" : "text-black"}`}>
-      <h1 className={`text-xl md:text-4xl font-bold mb-4 mt-20 ${theme === "dark" ? "text-red-400" : "text-red-500"}`}>Projects</h1>
-      <p className={`text-lg md:text-xl mb-18 ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}>Here are some of my projects.</p>
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, idx) => (
-          <div
-            key={idx}
-            className={`border rounded-xl shadow-lg flex flex-col overflow-hidden hover:scale-[1.025] transition-transform
-              ${theme === "dark" ? "bg-[#181818] border-gray-700" : "bg-white border-gray-300"}`}
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-40 object-cover md:h-48"
-            />
-            <div className="flex-1 flex flex-col p-4">
-              <h2 className="text-sm md:text-xl font-bold text-red-400 mb-1">{project.title}</h2>
-              <div className={`text-xs md:text-base mb-2 ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}>
-                <span className="font-semibold">Stack:</span> {project.stack}
+    <div className="min-h-screen px-5 py-10">
+      <div className="max-w-3xl mx-auto pt-16">
+        <motion.h1
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="text-2xl md:text-3xl font-bold mb-2"
+        >
+          Projects
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1, duration: 0.4 }}
+          className={`text-sm mb-8 ${isDark ? "text-[#a0a0a0]" : "text-gray-500"}`}
+        >
+          Things I've built.
+        </motion.p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {projects.map((project, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.08, duration: 0.4 }}
+              className="project-card flex flex-col overflow-hidden"
+            >
+              {/* Image — full width on top */}
+              <div className="w-full h-44 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
-              <p className={`text-xs md:text-base mb-4 flex-1 ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}>{project.description}</p>
-              <div className="flex gap-4 mt-auto">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex-1 text-xs md:text-base border rounded-lg px-3 py-1 text-center transition
-                    ${theme === "dark" ? "bg-gray-800 hover:bg-gray-700 text-gray-200 border-gray-600" : "bg-gray-100 hover:bg-gray-200 text-black border-gray-300"}`}
-                >
-                  GitHub Repo
-                </a>
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-xs md:text-base bg-red-400 hover:bg-red-500 text-white rounded-lg px-3 py-1 text-center transition"
-                >
-                  Live Demo
-                </a>
+
+              {/* Content */}
+              <div className="flex-1 p-4 flex flex-col">
+                <h2 className="text-base font-bold mb-0.5">{project.title}</h2>
+                <p className={`text-xs mb-2 font-mono ${isDark ? "text-[#666]" : "text-gray-400"}`}>{project.stack}</p>
+                <p className={`text-xs leading-relaxed mb-3 flex-1 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}>{project.description}</p>
+                <div className="flex gap-2.5">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-xs px-3 py-1.5 rounded-lg border transition-colors ${isDark ? "border-[#333] text-[#a0a0a0] hover:border-[#555] hover:text-white" : "border-gray-200 text-gray-600 hover:border-gray-400"
+                      }`}
+                  >
+                    <i className="fa-brands fa-github mr-1"></i> Code
+                  </a>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-xs px-3 py-1.5 rounded-lg transition-colors ${isDark ? "bg-[#333] text-white hover:bg-[#444]" : "bg-gray-800 text-white hover:bg-gray-700"
+                      }`}
+                  >
+                    <i className="fa-solid fa-arrow-up-right-from-square mr-1"></i> Live
+                  </a>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

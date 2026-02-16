@@ -1,48 +1,37 @@
+const socialLinks = [
+  { href: "https://www.linkedin.com/in/sanketsonkusare/", icon: "fa-brands fa-linkedin-in", label: "LinkedIn" },
+  { href: "https://github.com/sanketsonkusare", icon: "fa-brands fa-github", label: "GitHub" },
+  { href: "https://x.com/sassysanket", icon: "fa-brands fa-x-twitter", label: "Twitter/X" },
+  { href: "https://www.instagram.com/sassysanket/", icon: "fa-brands fa-instagram", label: "Instagram" },
+];
+
 function Footer({ theme }) {
+  const isDark = theme === "dark";
   return (
-    <footer className={`w-full z-50 shadow-md py-4 text-center mt-auto transition-colors duration-300
-      ${theme === "dark" ? "bg-[#272727] bg-opacity-90 text-gray-300" : "bg-white text-black"}
-    `}>
-      <div className="flex flex-col items-center gap-2">
-        <div className="flex gap-6 justify-center text-2xl mb-1">
-          <a
-            href="https://x.com/sassysanket"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter/X"
-            className={theme === "dark" ? "text-gray-400 hover:text-white transition" : "text-gray-600 hover:text-red-400 transition"}
-          >
-            <i className="fa-brands fa-x-twitter"></i>
-          </a>
-          <a
-            href="https://github.com/sanketsonkusare"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className={theme === "dark" ? "text-gray-400 hover:text-white transition" : "text-gray-600 hover:text-red-400 transition"}
-          >
-            <i className="fa-brands fa-github"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/sanketsonkusare/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className={theme === "dark" ? "text-gray-400 hover:text-white transition" : "text-gray-600 hover:text-red-400 transition"}
-          >
-            <i className="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a
-            href="https://www.instagram.com/sassysanket/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className={theme === "dark" ? "text-gray-400 hover:text-white transition" : "text-gray-600 hover:text-red-400 transition"}
-          >
-            <i className="fa-brands fa-instagram"></i>
-          </a>
+    <footer
+      className="w-full py-6 text-center mt-auto transition-colors duration-300"
+      style={{
+        borderTop: `1px solid ${isDark ? "#2a2a2a" : "#e5e5e5"}`,
+      }}
+    >
+      <div className="flex flex-col items-center gap-3">
+        <div className="flex gap-3 justify-center">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+              className="social-icon"
+            >
+              <i className={link.icon}></i>
+            </a>
+          ))}
         </div>
-        <span className="text-sm">&copy; {new Date().getFullYear()} Sanket Sonkusare. All rights reserved.</span>
+        <span className={`text-xs ${isDark ? "text-[#666]" : "text-gray-400"}`}>
+          &copy; {new Date().getFullYear()} Sanket Sonkusare
+        </span>
       </div>
     </footer>
   );
