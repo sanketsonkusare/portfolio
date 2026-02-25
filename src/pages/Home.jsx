@@ -1,23 +1,27 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import profilePic from "../assets/1000136928.jpg";
-import resumePDF from "../assets/Sanket_Sonkusare_Resume.pdf";
+import autovoyce from "../assets/autovoyce.png";
 
 const roles = ["an AI Engineer.", "a Full Stack Developer.", "a Body Builder."];
 
-const tools = [
+const languages = [
   { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
   { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
   { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
   { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-  { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-  { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+  { name: "R", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" },
   { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
   { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-  { name: "R", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" },
+];
+
+const frameworks = [
+  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
   { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
   { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
 ];
@@ -32,13 +36,17 @@ const aiTools = [
   { name: "MediaPipe", icon: "📹" },
 ];
 
-const socialLinks = [
-  { href: "/", icon: "fa-solid fa-house", label: "Home" },
-  { href: "https://github.com/sanketsonkusare", icon: "fa-brands fa-github", label: "GitHub" },
-  { href: "https://www.linkedin.com/in/sanketsonkusare/", icon: "fa-brands fa-linkedin-in", label: "LinkedIn" },
-  { href: "https://x.com/sassysanket", icon: "fa-brands fa-x-twitter", label: "Twitter" },
-  { href: "https://www.instagram.com/sassysanket/", icon: "fa-brands fa-instagram", label: "Instagram" },
-];
+// Staggered reveal variant with scale + blur
+const sectionReveal = {
+  hidden: { opacity: 0, y: 24, scale: 0.97, filter: "blur(6px)" },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] },
+  }),
+};
 
 function useTypewriter(words, typingSpeed = 100, deletingSpeed = 60, pauseTime = 1800) {
   const [text, setText] = useState("");
@@ -69,25 +77,13 @@ function useTypewriter(words, typingSpeed = 100, deletingSpeed = 60, pauseTime =
   return text;
 }
 
-function LiveClock({ theme }) {
-  const [time, setTime] = useState(new Date());
-  useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const formatted = time.toLocaleTimeString("en-IN", {
-    hour12: false,
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    timeZone: "Asia/Kolkata",
-  });
-
+function SectionDivider({ isDark }) {
   return (
-    <span className={`status-bar ${theme === "dark" ? "text-[#4ade80]" : "text-green-600"}`}>
-      IN {formatted}
-    </span>
+    <div className="section-divider" style={{
+      background: isDark
+        ? "linear-gradient(90deg, transparent, #333, transparent)"
+        : "linear-gradient(90deg, transparent, #ddd, transparent)",
+    }} />
   );
 }
 
@@ -97,34 +93,23 @@ function Home({ theme }) {
 
   return (
     <div className="min-h-screen px-5">
-      <div className="w-full max-w-3xl mx-auto pt-20">
-
-        {/* ===== STATUS BAR ===== */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-between items-center mb-10 mt-4"
-        >
-          <LiveClock theme={theme} />
-          <span className={`status-bar flex items-center gap-1.5 ${isDark ? "text-[#a0a0a0]" : "text-gray-500"}`}>
-            <i className="fa-solid fa-location-dot text-xs"></i> Pune, India
-          </span>
-        </motion.div>
+      <div className="w-full max-w-3xl mx-auto pt-28">
 
         {/* ===== HERO ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-14"
+          variants={sectionReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.1}
+          className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mt-6 mb-16"
         >
           <div className="flex-1">
             <h1 className="text-3xl md:text-4xl font-bold mb-2 leading-tight">
               Hi, I'm Sanket 👋
             </h1>
             <div className={`text-lg md:text-xl ${isDark ? "text-[#a0a0a0]" : "text-gray-500"}`}>
-              I am {typedText}
+              I am{" "}
+              <span className="typewriter-highlight">{typedText}</span>
               <span className="typewriter-cursor"></span>
             </div>
           </div>
@@ -142,9 +127,10 @@ function Home({ theme }) {
 
         {/* ===== ABOUT ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          variants={sectionReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.2}
           className="mb-10"
         >
           <h2 className="section-title">About</h2>
@@ -164,35 +150,101 @@ function Home({ theme }) {
           </div>
         </motion.div>
 
-        {/* ===== OPEN TO ===== */}
+        <SectionDivider isDark={isDark} />
+
+        {/* ===== FEATURED PROJECT ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-12"
+          variants={sectionReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.3}
+          className="mb-10"
         >
-          <div className="open-badge">
-            <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
-            Open to new opportunities and collaborations
+          <h2 className="section-title">Featured Project</h2>
+          <a
+            href="https://autovoyce.sanketsonkusare.me/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="featured-project-card block overflow-hidden"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="flex flex-col sm:flex-row">
+              <div className="sm:w-2/5 h-48 sm:h-auto overflow-hidden">
+                <img
+                  src={autovoyce}
+                  alt="AutoVoyce"
+                  className="featured-project-image w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="flex-1 p-5 flex flex-col justify-center">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={`text-[10px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded ${isDark ? "bg-blue-500/20 text-blue-400" : "bg-blue-100 text-blue-600"}`}>
+                    ⭐ Spotlight
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold mb-1">AutoVoyce</h3>
+                <p className={`text-xs font-mono mb-2 ${isDark ? "text-[#666]" : "text-gray-400"}`}>
+                  FastAPI · LangChain · Pinecone · Google Gemini · ElevenLabs · AWS EC2 · React
+                </p>
+                <p className={`text-xs leading-relaxed mb-3 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}>
+                  Talk to YouTube, not just watch it. AutoVoyce analyzes videos, remembers context, and lets you ask questions via chat or voice with multi-video cross-reasoning.
+                </p>
+                <div className="flex items-center gap-1">
+                  <span className={`text-xs font-medium ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                    View Project
+                  </span>
+                  <i className={`fa-solid fa-arrow-right text-[10px] ${isDark ? "text-blue-400" : "text-blue-600"}`}></i>
+                </div>
+              </div>
+            </div>
+          </a>
+          <div className="mt-3 text-center">
+            <Link
+              to="/projects"
+              className={`text-xs font-medium inline-flex items-center gap-1 transition-colors ${isDark ? "text-[#666] hover:text-[#a0a0a0]" : "text-gray-400 hover:text-gray-600"}`}
+              style={{ textDecoration: "none" }}
+            >
+              View all projects <i className="fa-solid fa-arrow-right text-[10px]"></i>
+            </Link>
           </div>
         </motion.div>
 
+        <SectionDivider isDark={isDark} />
+
         {/* ===== TOOLS ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="mb-8"
+          variants={sectionReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.4}
+          className="mb-10"
         >
           <h2 className="section-title">Tools that I have used</h2>
+
+          {/* Languages */}
+          <p className={`tool-group-label ${isDark ? "text-[#666]" : "text-gray-400"}`}>Languages</p>
           <div className="flex flex-wrap gap-2.5 mb-4">
-            {tools.map((tool) => (
+            {languages.map((tool) => (
               <span key={tool.name} className="tool-badge">
                 <img src={tool.icon} alt={tool.name} />
                 {tool.name}
               </span>
             ))}
           </div>
+
+          {/* Frameworks & Infrastructure */}
+          <p className={`tool-group-label ${isDark ? "text-[#666]" : "text-gray-400"}`}>Frameworks & Infrastructure</p>
+          <div className="flex flex-wrap gap-2.5 mb-4">
+            {frameworks.map((tool) => (
+              <span key={tool.name} className="tool-badge">
+                <img src={tool.icon} alt={tool.name} />
+                {tool.name}
+              </span>
+            ))}
+          </div>
+
+          {/* AI / ML */}
+          <p className={`tool-group-label ${isDark ? "text-[#666]" : "text-gray-400"}`}>AI / ML</p>
           <div className="flex flex-wrap gap-2.5">
             {aiTools.map((tool) => (
               <span key={tool.name} className="tool-badge">
@@ -203,42 +255,14 @@ function Home({ theme }) {
           </div>
         </motion.div>
 
-        {/* ===== SOCIAL ROW ===== */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex justify-center gap-3 py-8 mb-6"
-        >
-          {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith("http") ? "_blank" : "_self"}
-              rel="noopener noreferrer"
-              aria-label={link.label}
-              className="social-icon"
-            >
-              <i className={link.icon}></i>
-            </a>
-          ))}
-          {/* Resume download */}
-          <a
-            href={resumePDF}
-            download
-            aria-label="Download Resume"
-            className="social-icon"
-            title="Download Resume"
-          >
-            <i className="fa-solid fa-download"></i>
-          </a>
-        </motion.div>
+        <SectionDivider isDark={isDark} />
 
         {/* ===== JOURNEY & PASSIONS ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.45 }}
+          variants={sectionReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.5}
           className="mb-10"
         >
           <h2 className="section-title">My Journey & Passions</h2>
@@ -252,11 +276,14 @@ function Home({ theme }) {
           </div>
         </motion.div>
 
+        <SectionDivider isDark={isDark} />
+
         {/* ===== RANDOM STATS ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          variants={sectionReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.55}
           className="mb-10"
         >
           <h2 className="section-title">My Random Stats</h2>
@@ -278,11 +305,14 @@ function Home({ theme }) {
           </div>
         </motion.div>
 
+        <SectionDivider isDark={isDark} />
+
         {/* ===== PHILOSOPHY ===== */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.55 }}
+          variants={sectionReveal}
+          initial="hidden"
+          animate="visible"
+          custom={0.6}
           className="mb-16"
         >
           <h2 className="section-title">My Philosophy</h2>

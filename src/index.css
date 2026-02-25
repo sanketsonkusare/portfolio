@@ -20,10 +20,10 @@
 }
 
 :root.light {
-  --bg-primary: #fafafa;
-  --bg-secondary: #f0f0f0;
+  --bg-primary: #fdf8f3;
+  --bg-secondary: #f5efe8;
   --bg-card: #ffffff;
-  --border-color: #e0e0e0;
+  --border-color: #e8dfd5;
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
   --text-muted: #999999;
@@ -83,6 +83,18 @@ body {
   }
 }
 
+/* --- Typewriter highlight --- */
+.typewriter-highlight {
+  background: linear-gradient(120deg, rgba(96, 165, 250, 0.15) 0%, rgba(74, 222, 128, 0.12) 100%);
+  padding: 1px 6px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+:root.light .typewriter-highlight {
+  background: linear-gradient(120deg, rgba(37, 99, 235, 0.1) 0%, rgba(22, 163, 74, 0.08) 100%);
+}
+
 /* --- Tool badge --- */
 .tool-badge {
   display: inline-flex;
@@ -107,6 +119,45 @@ body {
   width: 18px;
   height: 18px;
   object-fit: contain;
+}
+
+/* --- Tool group label --- */
+.tool-group-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Section divider --- */
+.section-divider {
+  height: 1px;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+/* --- Featured project card --- */
+.featured-project-card {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-card);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.featured-project-card:hover {
+  border-color: #555;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.featured-project-image {
+  transition: transform 0.35s ease;
+}
+
+.featured-project-card:hover .featured-project-image {
+  transform: scale(1.04);
 }
 
 /* --- Social icon row --- */
@@ -171,12 +222,36 @@ body {
   border-radius: 12px;
   overflow: hidden;
   background: var(--bg-card);
-  transition: all 0.2s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card:hover {
   border-color: #555;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.project-card-image {
+  transition: transform 0.35s ease;
+}
+
+.project-card:hover .project-card-image {
+  transform: scale(1.04);
+}
+
+/* --- Blog card --- */
+.blog-card {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-card);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-card:hover {
+  border-color: #555;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Glass card reuse for backwards compat */

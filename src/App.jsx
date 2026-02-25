@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Built from "./pages/Built";
+import Blogs from "./pages/Blogs";
 import Connect from "./pages/Connect";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
@@ -24,6 +25,7 @@ function AnimatedRoutes({ theme }) {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><Home theme={theme} /></PageWrapper>} />
         <Route path="/projects" element={<PageWrapper><Projects theme={theme} /></PageWrapper>} />
+        <Route path="/blogs" element={<PageWrapper><Blogs theme={theme} /></PageWrapper>} />
         <Route path="/resume" element={<PageWrapper><Resume theme={theme} /></PageWrapper>} />
         <Route path="/built" element={<PageWrapper><Built theme={theme} /></PageWrapper>} />
         <Route path="/connect" element={<PageWrapper><Connect theme={theme} /></PageWrapper>} />
@@ -52,7 +54,7 @@ function App() {
   return (
     <div
       className="flex flex-col min-h-screen transition-colors duration-300"
-      style={{ background: theme === "dark" ? "#1a1a1a" : "#fafafa" }}
+      style={{ background: theme === "dark" ? "#1a1a1a" : "#fdf8f3" }}
     >
       <ParticleBackground theme={theme} />
       <Router>

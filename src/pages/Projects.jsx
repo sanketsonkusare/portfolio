@@ -82,19 +82,23 @@ function Projects({ theme }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {projects.map((project, idx) => (
-            <motion.div
+            <motion.a
               key={idx}
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.08, duration: 0.4 }}
-              className="project-card flex flex-col overflow-hidden"
+              className="project-card flex flex-col overflow-hidden cursor-pointer no-underline"
+              style={{ textDecoration: 'none', color: 'inherit' }}
             >
               {/* Image — full width on top */}
               <div className="w-full h-44 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-top"
+                  className="project-card-image w-full h-full object-cover object-top"
                 />
               </div>
 
@@ -104,27 +108,22 @@ function Projects({ theme }) {
                 <p className={`text-xs mb-2 font-mono ${isDark ? "text-[#666]" : "text-gray-400"}`}>{project.stack}</p>
                 <p className={`text-xs leading-relaxed mb-3 flex-1 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}>{project.description}</p>
                 <div className="flex gap-2.5">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`text-xs px-3 py-1.5 rounded-lg border transition-colors ${isDark ? "border-[#333] text-[#a0a0a0] hover:border-[#555] hover:text-white" : "border-gray-200 text-gray-600 hover:border-gray-400"
+                  <span
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.github, '_blank'); }}
+                    className={`text-xs px-3 py-1.5 rounded-lg border transition-colors cursor-pointer ${isDark ? "border-[#333] text-[#a0a0a0] hover:border-[#555] hover:text-white" : "border-gray-200 text-gray-600 hover:border-gray-400"
                       }`}
                   >
                     <i className="fa-brands fa-github mr-1"></i> Code
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  </span>
+                  <span
                     className={`text-xs px-3 py-1.5 rounded-lg transition-colors ${isDark ? "bg-[#333] text-white hover:bg-[#444]" : "bg-gray-800 text-white hover:bg-gray-700"
                       }`}
                   >
                     <i className="fa-solid fa-arrow-up-right-from-square mr-1"></i> Live
-                  </a>
+                  </span>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

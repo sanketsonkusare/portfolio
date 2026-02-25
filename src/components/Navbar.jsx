@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/S_logo.png";
 
 const navLinks = [
-  { to: null, label: "Blogs", href: "https://blog.sanketsonkusare.me/", external: true },
+  { to: "/blogs", label: "Blogs" },
   { to: "/projects", label: "Projects" },
   { to: "/resume", label: "Experience" },
   { to: "/built", label: "Built" },
@@ -49,7 +49,7 @@ function Navbar({ menuOpen, setMenuOpen, theme, setTheme }) {
     <nav
       className="fixed top-0 left-0 w-full z-50 transition-colors duration-300"
       style={{
-        background: theme === "dark" ? "rgba(26,26,26,0.9)" : "rgba(250,250,250,0.9)",
+        background: theme === "dark" ? "rgba(26,26,26,0.9)" : "rgba(253,248,243,0.9)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
         borderBottom: `1px solid ${theme === "dark" ? "#2a2a2a" : "#e5e5e5"}`,
@@ -141,7 +141,7 @@ function Navbar({ menuOpen, setMenuOpen, theme, setTheme }) {
             exit={{ opacity: 0, height: 0 }}
             className="sm:hidden overflow-hidden"
             style={{
-              background: theme === "dark" ? "#1a1a1a" : "#fafafa",
+              background: theme === "dark" ? "#1a1a1a" : "#fdf8f3",
               borderTop: `1px solid ${theme === "dark" ? "#2a2a2a" : "#e5e5e5"}`,
             }}
           >
