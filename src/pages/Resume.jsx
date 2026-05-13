@@ -3,10 +3,18 @@ import resumePDF from "../assets/Sanket_Sonkusare_Resume.pdf";
 
 const experiences = [
   {
+    role: "Forward Deployed Engineer",
+    company: "DevRev",
+    period: "Apr 2026 – Present",
+    current: true,
+    points: [
+      "Engineer on the Automation Squad at DevRev, building and shipping enterprise-grade connectors that sync data between DevRev and external systems. bridging the gap between CRMs, data warehouses, and DevRev's unified platform.",
+    ],
+  },
+  {
     role: "AI Engineer",
     company: "Scrobits Technologies",
-    period: "Aug 2025 – Present",
-    current: true,
+    period: "Aug 2025 – Mar 2026",
     points: [
       "Built an Agentic Enterprise RAG system using FastAPI, LangGraph, and Pinecone, enabling multitenant semantic search, human-in-loop escalation, and real-time dashboards.",
       "Built a multi-agent AI support chatbot using FastAPI, LangGraph, Pinecone, and Google Gemini, achieving 95% query routing accuracy and 40% latency reduction.",
