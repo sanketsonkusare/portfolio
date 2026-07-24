@@ -48,6 +48,12 @@ function PageWrapper({ children }) {
   );
 }
 
+function AppFooter({ theme }) {
+  const { pathname } = useLocation();
+  if (pathname === "/connect") return null;
+  return <Footer theme={theme} />;
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
@@ -62,7 +68,7 @@ function App() {
         <div className={`flex-1 relative z-10 ${menuOpen ? 'blur-sm pointer-events-none' : ''} ${theme === "dark" ? "text-[#e5e5e5]" : "text-[#1a1a1a]"}`}>
           <AnimatedRoutes theme={theme} />
         </div>
-        <Footer theme={theme} />
+        <AppFooter theme={theme} />
       </Router>
     </div>
   );
