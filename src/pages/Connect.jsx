@@ -39,7 +39,7 @@ const contactLinks = [
   {
     icon: "fa-solid fa-location-dot",
     label: "Location",
-    value: "Pune, India",
+    value: "Bengaluru, India",
     href: null,
     color: "#4ade80",
   },
@@ -59,86 +59,111 @@ function Connect({ theme }) {
   const isDark = theme === "dark";
 
   return (
-    <div className="min-h-screen px-5 py-10 flex items-center justify-center">
-      <div className="max-w-2xl w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="mb-10"
-        >
-          <h1 className="text-2xl md:text-3xl font-bold mb-2">
-            Let's Connect 🤝
-          </h1>
-          <p className={`text-sm leading-relaxed ${isDark ? "text-[#a0a0a0]" : "text-gray-500"}`}>
-            Whether you have a project idea, a question about my work, or just want to say hello — I'd love to hear from you. Pick your preferred platform below.
-          </p>
-        </motion.div>
+    <div className="connect-page min-h-screen px-5 py-10 flex items-center justify-center">
+      <div className="connect-panel max-w-2xl w-full">
+        <div className="connect-overlay" aria-hidden="true" />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 sm:grid-cols-2 gap-3"
-        >
-          {contactLinks.map((link) => {
-            const Wrapper = link.href ? "a" : "div";
-            const wrapperProps = link.href
-              ? {
-                href: link.href,
-                target: link.href.startsWith("http") ? "_blank" : undefined,
-                rel: link.href.startsWith("http") ? "noopener noreferrer" : undefined,
-              }
-              : {};
+        <div className="connect-content relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="mb-10 connect-header"
+          >
+            <h1 className="text-2xl md:text-3xl font-bold mb-2 connect-heading">
+              Hi There! 👋
+            </h1>
+            <p
+              className={`text-sm leading-relaxed connect-intro ${isDark ? "text-[#a0a0a0]" : "text-gray-500"}`}
+            >
+              I'm Sanket,<br></br>
+              a 24 year old AI engineer. <br />
+              I code to make money, then spend it proteinmaxxing.
+              <br />
+              Follow me on social media to keep up with my journey.
+            </p>
+          </motion.div>
 
-            return (
-              <motion.div key={link.label} variants={cardVariants}>
-                <Wrapper
-                  {...wrapperProps}
-                  className={`group flex items-center gap-4 p-4 rounded-xl border transition-all duration-200 ${link.href ? "cursor-pointer" : ""
-                    } ${isDark
-                      ? "border-[#2a2a2a] bg-[#1e1e1e] hover:border-[#444] hover:bg-[#252525]"
-                      : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
-                    }`}
-                  style={{ ["--accent-color"]: link.color }}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3 connect-links"
+          >
+            {contactLinks.map((link) => {
+              const Wrapper = link.href ? "a" : "div";
+              const wrapperProps = link.href
+                ? {
+                    href: link.href,
+                    target: link.href.startsWith("http") ? "_blank" : undefined,
+                    rel: link.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined,
+                  }
+                : {};
+
+              return (
+                <motion.div
+                  key={link.label}
+                  variants={cardVariants}
+                  className="min-w-0"
                 >
-                  <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-200 group-hover:scale-110"
-                    style={{
-                      background: `${link.color}15`,
-                      border: `1px solid ${link.color}30`,
-                    }}
+                  <Wrapper
+                    {...wrapperProps}
+                    aria-label={`${link.label}: ${link.value}`}
+                    title={`${link.label}: ${link.value}`}
+                    className={`connect-card group flex items-center gap-4 p-4 rounded-xl border transition-all duration-200 ${
+                      link.href ? "cursor-pointer" : ""
+                    } ${
+                      isDark
+                        ? "border-[#2a2a2a] bg-[#1e1e1e] hover:border-[#444] hover:bg-[#252525]"
+                        : "border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm"
+                    }`}
+                    style={{ ["--accent-color"]: link.color }}
                   >
-                    <i className={`${link.icon} text-base`} style={{ color: link.color }}></i>
-                  </div>
-                  <div className="min-w-0">
-                    <p className={`text-[11px] uppercase tracking-wider font-medium ${isDark ? "text-[#555]" : "text-gray-400"}`}>
-                      {link.label}
-                    </p>
-                    <p className={`text-sm font-medium truncate transition-colors duration-200 ${isDark ? "text-[#ccc] group-hover:text-white" : "text-gray-800 group-hover:text-black"
-                      }`}>
-                      {link.value}
-                    </p>
-                  </div>
-                  {link.href && (
-                    <i className={`fa-solid fa-arrow-right text-xs ml-auto transition-all duration-200 opacity-0 -translate-x-2 group-hover:opacity-60 group-hover:translate-x-0 ${isDark ? "text-white" : "text-black"
-                      }`}></i>
-                  )}
-                </Wrapper>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
-          className={`mt-10 text-center text-sm ${isDark ? "text-[#666]" : "text-gray-400"}`}
-        >
-          <p>Prefer email? Drop me a line at <a href="mailto:sanketsonkusare01@gmail.com" className="text-blue-400 hover:underline">sanketsonkusare01@gmail.com</a></p>
-        </motion.div>
+                    <div
+                      className="connect-card-icon w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-200 group-hover:scale-110"
+                      style={{
+                        background: `${link.color}15`,
+                        border: `1px solid ${link.color}30`,
+                      }}
+                    >
+                      <i
+                        className={`${link.icon} text-base`}
+                        style={{ color: link.color }}
+                      ></i>
+                    </div>
+                    <div className="connect-card-text min-w-0 flex-1 overflow-hidden">
+                      <p
+                        className={`connect-card-label text-[11px] uppercase tracking-wider font-medium ${
+                          isDark ? "text-[#555]" : "text-gray-400"
+                        }`}
+                      >
+                        {link.label}
+                      </p>
+                      <p
+                        className={`connect-card-value text-sm font-medium truncate transition-colors duration-200 ${
+                          isDark
+                            ? "text-[#ccc] group-hover:text-white"
+                            : "text-gray-800 group-hover:text-black"
+                        }`}
+                      >
+                        {link.value}
+                      </p>
+                    </div>
+                    {link.href && (
+                      <i
+                        className={`connect-card-arrow fa-solid fa-arrow-right text-xs ml-auto flex-shrink-0 transition-all duration-200 opacity-0 -translate-x-2 group-hover:opacity-60 group-hover:translate-x-0 ${
+                          isDark ? "text-white" : "text-black"
+                        }`}
+                      ></i>
+                    )}
+                  </Wrapper>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
       </div>
     </div>
   );

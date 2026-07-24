@@ -319,3 +319,188 @@ body {
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* --- Connect page: mobile-only refinements (<768px / below Tailwind md) ---
+   Desktop / tablet layouts stay unchanged. */
+@media (max-width: 767px) {
+  .connect-page {
+    padding: 0 !important;
+    overflow-x: hidden;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  .connect-panel {
+    position: relative;
+    max-width: none !important;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(/connect-image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+
+  .connect-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    /* Stronger on the left for text; clear on the right for the subject */
+    background: linear-gradient(
+      90deg,
+      rgba(10, 12, 14, 0.92) 0%,
+      rgba(10, 12, 14, 0.78) 42%,
+      rgba(10, 12, 14, 0.35) 68%,
+      rgba(10, 12, 14, 0.12) 100%
+    );
+  }
+
+  :root.light .connect-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(253, 248, 243, 0.94) 0%,
+      rgba(253, 248, 243, 0.8) 42%,
+      rgba(253, 248, 243, 0.35) 68%,
+      rgba(253, 248, 243, 0.1) 100%
+    );
+  }
+
+  .connect-content {
+    padding: 5.5rem 0 2rem 1rem;
+    width: 100%;
+  }
+
+  .connect-header {
+    margin-bottom: 1.25rem !important;
+    max-width: 62%;
+    width: 62%;
+  }
+
+  .connect-heading {
+    font-size: 1.25rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .connect-intro {
+    line-height: 1.65;
+    color: #c8c8c8 !important;
+  }
+
+  :root.light .connect-intro {
+    color: #555555 !important;
+  }
+
+  .connect-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, 48px) !important;
+    gap: 0.625rem;
+    width: auto;
+    max-width: none;
+    justify-content: start;
+  }
+
+  .connect-links > * {
+    width: 48px;
+  }
+
+  .connect-card {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+    min-width: 48px;
+    gap: 0;
+    padding: 0 !important;
+    border-radius: 12px;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .connect-card:hover {
+    background: rgba(0, 0, 0, 0.55) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+
+  :root.light .connect-card {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  :root.light .connect-card:hover {
+    background: rgba(255, 255, 255, 0.88) !important;
+    border-color: rgba(0, 0, 0, 0.18) !important;
+  }
+
+  .connect-card-icon {
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 12px;
+  }
+
+  .connect-card-icon i {
+    font-size: 1.15rem;
+  }
+
+  .connect-card-text,
+  .connect-card-arrow {
+    display: none !important;
+  }
+
+  .connect-cta {
+    margin-top: 1.25rem !important;
+    max-width: 62%;
+    width: 62%;
+    text-align: left !important;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    color: #bbbbbb !important;
+  }
+
+  :root.light .connect-cta {
+    color: #777777 !important;
+  }
+
+  .connect-cta-email {
+    word-break: break-all;
+  }
+}
+
+/* Extra-narrow phones: keep links even tighter so subject stays clear */
+@media (max-width: 360px) {
+  .connect-panel {
+    background-position: 85% center;
+  }
+
+  .connect-content {
+    padding-left: 0.75rem;
+  }
+
+  .connect-header,
+  .connect-cta {
+    max-width: 58%;
+    width: 58%;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 430px) {
+  .connect-panel {
+    background-position: 82% center;
+  }
+
+  .connect-header,
+  .connect-cta {
+    max-width: 60%;
+    width: 60%;
+  }
+}

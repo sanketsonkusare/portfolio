@@ -94,7 +94,6 @@ function Home({ theme }) {
   return (
     <div className="min-h-screen px-5">
       <div className="w-full max-w-3xl mx-auto pt-28">
-
         {/* ===== HERO ===== */}
         <motion.div
           variants={sectionReveal}
@@ -107,9 +106,10 @@ function Home({ theme }) {
             <h1 className="text-3xl md:text-4xl font-bold mb-2 leading-tight">
               Hi, I'm Sanket 👋
             </h1>
-            <div className={`text-lg md:text-xl ${isDark ? "text-[#a0a0a0]" : "text-gray-500"}`}>
-              I am{" "}
-              <span className="typewriter-highlight">{typedText}</span>
+            <div
+              className={`text-lg md:text-xl ${isDark ? "text-[#a0a0a0]" : "text-gray-500"}`}
+            >
+              I am <span className="typewriter-highlight">{typedText}</span>
               <span className="typewriter-cursor"></span>
             </div>
           </div>
@@ -120,7 +120,11 @@ function Home({ theme }) {
                 border: `3px solid ${isDark ? "#333" : "#ddd"}`,
               }}
             >
-              <img src={profilePic} alt="Sanket Sonkusare" className="w-full h-full object-cover" />
+              <img
+                src={profilePic}
+                alt="Sanket Sonkusare"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </motion.div>
@@ -134,18 +138,47 @@ function Home({ theme }) {
           className="mb-10"
         >
           <h2 className="section-title">About</h2>
-          <div className={`text-sm leading-relaxed space-y-3 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}>
+          <div
+            className={`text-sm leading-relaxed space-y-3 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}
+          >
             <p>
-              Hello! I'm an AI Engineer from Pune, India. I build things that make <strong className={isDark ? "text-white" : "text-black"}>sense</strong>, both in code and in the real world.
+              Hello! I'm an AI Engineer from Bengaluru, India. I build things
+              that make{" "}
+              <strong className={isDark ? "text-white" : "text-black"}>
+                sense
+              </strong>
+              , both in code and in the real world.
             </p>
             <p>
-              I believe the best way to learn is by <strong className={isDark ? "text-white" : "text-black"}>building</strong>. I spend my time creating{" "}
-              <span className="text-blue-400 font-medium">full-stack applications</span> and{" "}
-              <span className="text-blue-400 font-medium">AI-powered systems</span> with{" "}
-              <strong className={isDark ? "text-white" : "text-black"}>Python</strong>,{" "}
-              <strong className={isDark ? "text-white" : "text-black"}>React</strong>, and{" "}
-              <strong className={isDark ? "text-white" : "text-black"}>Node.js</strong>, taking them from a simple idea to a{" "}
-              <span className="text-green-400 font-medium italic">finished product</span>.
+              I believe the best way to learn is by{" "}
+              <strong className={isDark ? "text-white" : "text-black"}>
+                building
+              </strong>
+              . I spend my time creating{" "}
+              <span className="text-blue-400 font-medium">
+                full-stack applications
+              </span>{" "}
+              and{" "}
+              <span className="text-blue-400 font-medium">
+                AI-powered systems
+              </span>{" "}
+              with{" "}
+              <strong className={isDark ? "text-white" : "text-black"}>
+                Python
+              </strong>
+              ,{" "}
+              <strong className={isDark ? "text-white" : "text-black"}>
+                React
+              </strong>
+              , and{" "}
+              <strong className={isDark ? "text-white" : "text-black"}>
+                Node.js
+              </strong>
+              , taking them from a simple idea to a{" "}
+              <span className="text-green-400 font-medium italic">
+                finished product
+              </span>
+              .
             </p>
           </div>
         </motion.div>
@@ -178,22 +211,35 @@ function Home({ theme }) {
               </div>
               <div className="flex-1 p-5 flex flex-col justify-center">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className={`text-[10px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded ${isDark ? "bg-blue-500/20 text-blue-400" : "bg-blue-100 text-blue-600"}`}>
+                  <span
+                    className={`text-[10px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded ${isDark ? "bg-blue-500/20 text-blue-400" : "bg-blue-100 text-blue-600"}`}
+                  >
                     ⭐ Spotlight
                   </span>
                 </div>
                 <h3 className="text-lg font-bold mb-1">AutoVoyce</h3>
-                <p className={`text-xs font-mono mb-2 ${isDark ? "text-[#666]" : "text-gray-400"}`}>
-                  FastAPI · LangChain · Pinecone · Google Gemini · ElevenLabs · AWS EC2 · React
+                <p
+                  className={`text-xs font-mono mb-2 ${isDark ? "text-[#666]" : "text-gray-400"}`}
+                >
+                  FastAPI · LangChain · Pinecone · Google Gemini · ElevenLabs ·
+                  AWS EC2 · React
                 </p>
-                <p className={`text-xs leading-relaxed mb-3 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}>
-                  Talk to YouTube, not just watch it. AutoVoyce analyzes videos, remembers context, and lets you ask questions via chat or voice with multi-video cross-reasoning.
+                <p
+                  className={`text-xs leading-relaxed mb-3 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}
+                >
+                  Talk to YouTube, not just watch it. AutoVoyce analyzes videos,
+                  remembers context, and lets you ask questions via chat or
+                  voice with multi-video cross-reasoning.
                 </p>
                 <div className="flex items-center gap-1">
-                  <span className={`text-xs font-medium ${isDark ? "text-blue-400" : "text-blue-600"}`}>
+                  <span
+                    className={`text-xs font-medium ${isDark ? "text-blue-400" : "text-blue-600"}`}
+                  >
                     View Project
                   </span>
-                  <i className={`fa-solid fa-arrow-right text-[10px] ${isDark ? "text-blue-400" : "text-blue-600"}`}></i>
+                  <i
+                    className={`fa-solid fa-arrow-right text-[10px] ${isDark ? "text-blue-400" : "text-blue-600"}`}
+                  ></i>
                 </div>
               </div>
             </div>
@@ -204,7 +250,8 @@ function Home({ theme }) {
               className={`text-xs font-medium inline-flex items-center gap-1 transition-colors ${isDark ? "text-[#666] hover:text-[#a0a0a0]" : "text-gray-400 hover:text-gray-600"}`}
               style={{ textDecoration: "none" }}
             >
-              View all projects <i className="fa-solid fa-arrow-right text-[10px]"></i>
+              View all projects{" "}
+              <i className="fa-solid fa-arrow-right text-[10px]"></i>
             </Link>
           </div>
         </motion.div>
@@ -222,7 +269,11 @@ function Home({ theme }) {
           <h2 className="section-title">Tools that I have used</h2>
 
           {/* Languages */}
-          <p className={`tool-group-label ${isDark ? "text-[#666]" : "text-gray-400"}`}>Languages</p>
+          <p
+            className={`tool-group-label ${isDark ? "text-[#666]" : "text-gray-400"}`}
+          >
+            Languages
+          </p>
           <div className="flex flex-wrap gap-2.5 mb-4">
             {languages.map((tool) => (
               <span key={tool.name} className="tool-badge">
@@ -233,7 +284,11 @@ function Home({ theme }) {
           </div>
 
           {/* Frameworks & Infrastructure */}
-          <p className={`tool-group-label ${isDark ? "text-[#666]" : "text-gray-400"}`}>Frameworks & Infrastructure</p>
+          <p
+            className={`tool-group-label ${isDark ? "text-[#666]" : "text-gray-400"}`}
+          >
+            Frameworks & Infrastructure
+          </p>
           <div className="flex flex-wrap gap-2.5 mb-4">
             {frameworks.map((tool) => (
               <span key={tool.name} className="tool-badge">
@@ -244,7 +299,11 @@ function Home({ theme }) {
           </div>
 
           {/* AI / ML */}
-          <p className={`tool-group-label ${isDark ? "text-[#666]" : "text-gray-400"}`}>AI / ML</p>
+          <p
+            className={`tool-group-label ${isDark ? "text-[#666]" : "text-gray-400"}`}
+          >
+            AI / ML
+          </p>
           <div className="flex flex-wrap gap-2.5">
             {aiTools.map((tool) => (
               <span key={tool.name} className="tool-badge">
@@ -266,12 +325,28 @@ function Home({ theme }) {
           className="mb-10"
         >
           <h2 className="section-title">My Journey & Passions</h2>
-          <div className={`text-sm leading-relaxed space-y-3 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}>
+          <div
+            className={`text-sm leading-relaxed space-y-3 ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}
+          >
             <p>
-              I'm not just about the code! I believe in a balanced life, which for me means a strong focus on <strong className={isDark ? "text-white" : "text-black"}>fitness</strong>. I'm proud to be a <span className="text-blue-400 font-medium">Silver Medalist in University Bodybuilding</span>, and I love sharing my journey in this space.
+              I'm not just about the code! I believe in a balanced life, which
+              for me means a strong focus on{" "}
+              <strong className={isDark ? "text-white" : "text-black"}>
+                fitness
+              </strong>
+              . I'm proud to be a{" "}
+              <span className="text-blue-400 font-medium">
+                Silver Medalist in University Bodybuilding
+              </span>
+              , and I love sharing my journey in this space.
             </p>
             <p>
-              When I need to clear my head, you'll often find me with a flute in hand. <strong className={isDark ? "text-white" : "text-black"}>Music</strong> is my meditation – I can play almost anything!
+              When I need to clear my head, you'll often find me with a flute in
+              hand.{" "}
+              <strong className={isDark ? "text-white" : "text-black"}>
+                Music
+              </strong>{" "}
+              is my meditation – I can play almost anything!
             </p>
           </div>
         </motion.div>
@@ -316,21 +391,25 @@ function Home({ theme }) {
           className="mb-16"
         >
           <h2 className="section-title">My Philosophy</h2>
-          <div
-            className={`exp-card px-5 py-4`}
-          >
-            <p className={`italic text-base mb-2 ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}>
+          <div className={`exp-card px-5 py-4`}>
+            <p
+              className={`italic text-base mb-2 ${isDark ? "text-[#e5e5e5]" : "text-gray-800"}`}
+            >
               "You either lift heavy weights or heavy code. I do both."
             </p>
-            <p className={`text-xs ${isDark ? "text-[#666]" : "text-gray-400"}`}>
-              This fun fact encapsulates my approach to life – balancing intellectual rigor with physical discipline.
+            <p
+              className={`text-xs ${isDark ? "text-[#666]" : "text-gray-400"}`}
+            >
+              This fun fact encapsulates my approach to life – balancing
+              intellectual rigor with physical discipline.
             </p>
           </div>
-          <p className={`mt-6 text-sm ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}>
+          <p
+            className={`mt-6 text-sm ${isDark ? "text-[#a0a0a0]" : "text-gray-600"}`}
+          >
             Thanks for stopping by! Let's build, lift, and grow together. 💪🔥
           </p>
         </motion.div>
-
       </div>
     </div>
   );
