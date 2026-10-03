@@ -18,7 +18,7 @@ export default function Timeline({ items, detailed = false }) {
               <div>
                 <h3>
                   {e.role}
-                  {e.current && <span className="now">Now</span>}
+                  {e.current && <span className="now">Current</span>}
                 </h3>
                 <div className="co">{e.company}</div>
               </div>

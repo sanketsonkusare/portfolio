@@ -72,9 +72,9 @@ test("Timeline detailed mode shows summaries and every bullet", () => {
   assert.equal(count(html, /<li>/g), bullets);
   assert.ok(html.includes("Automation Squad"));
 });
-test("Timeline marks only the current role with Now", () => {
+test("Timeline marks only the current role with Current", () => {
   const html = inRouter(<Timeline items={experience} />);
-  assert.equal(count(html, />Now</g), 1);
+  assert.equal(count(html, />Current</g), 1);
 });
 
 test("ProjectCard full variant hides Live when there is no live link", () => {
