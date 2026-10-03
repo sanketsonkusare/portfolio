@@ -47,6 +47,13 @@ test("Education and Tools use the two-column list layout on wide screens", () =>
   const html = page(<Home />);
   assert.equal(count(html, /class="rows cols"/g), 2);
 });
+test("Home hero has a status chip, a gradient name and a glow behind the photo", () => {
+  const html = page(<Home />);
+  assert.match(html, /class="chip"[^>]*>.*Building at DevRev/s);
+  assert.match(html, /<h1 class="grad">Sanket Sonkusare<\/h1>/);
+  assert.match(html, /class="photo-wrap"/);
+  assert.ok(!/open to work/i.test(html));
+});
 test("Experience page has full detail and education", () => {
   const html = page(<Experience />);
   assert.ok(html.includes("RS256 JWT"));
