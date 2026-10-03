@@ -96,7 +96,7 @@ html[data-theme="light"] .card:hover{box-shadow:0 14px 34px rgba(0,0,0,.09)}
 .card .lk{display:flex;gap:14px;font-size:13.5px;color:var(--acc);padding-top:6px}
 .tag{font-size:11.5px;font-weight:600;color:var(--mut);border:1px solid var(--line2);padding:1px 8px;border-radius:99px;margin-left:8px;vertical-align:1px}
 .card.wide{grid-column:1/-1;flex-direction:row}
-.card.wide .im{width:46%;aspect-ratio:auto;flex:none}
+.card.wide .im{width:52%;aspect-ratio:auto;flex:none}
 .card.wide .bd{padding:22px 24px;justify-content:center}
 .card.wide h3{font-size:19px}
 .card.wide p{font-size:14.5px}
@@ -198,11 +198,7 @@ section.first{margin-top:36px}
   h2{font-size:24px;margin-bottom:24px}
   .pagehead{padding-top:88px}.pagehead h1{font-size:44px}
   .grid{grid-template-columns:repeat(3,1fr);gap:20px}
-  .card.wide{grid-column:auto;flex-direction:column}
-  .card.wide .im{width:100%;aspect-ratio:16/8.4}
-  .card.wide .bd{padding:16px 18px 18px;justify-content:flex-start}
-  .card.wide h3{font-size:16px}
-  .card.wide p{font-size:14px}
+  .grid.pv{grid-template-columns:1fr 1fr}
   .rows.cols{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;border-top:0;border-bottom:1px solid var(--line)}
   .rows.cols .row{grid-template-columns:1fr;gap:4px;border-top:1px solid var(--line);border-bottom:0}
   footer{margin-top:112px}

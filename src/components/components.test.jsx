@@ -83,6 +83,11 @@ test("ProjectCard full variant hides Live when there is no live link", () => {
   assert.ok(!html.includes(">Live<"));
   assert.ok(html.includes(">GitHub<"));
 });
+test("ProjectCard full variant hides GitHub when there is no repo", () => {
+  const html = inRouter(<ProjectCard project={projects[0]} variant="full" />);
+  assert.ok(html.includes(">Website<"));
+  assert.ok(!html.includes(">GitHub<"));
+});
 test("ProjectCard full variant uses liveLabel when present", () => {
   const html = inRouter(<ProjectCard project={projects.find((p) => p.id === "github-wrapper")} variant="full" />);
   assert.ok(html.includes(">npm<"));

@@ -25,7 +25,7 @@ export default function Home() {
         <Timeline items={experience} />
       </Section>
       <Section title="Projects" link={{ to: "/projects", label: "All projects" }}>
-        <div className="grid">
+        <div className="grid pv">
           {projects.slice(0, 3).map((p) => (
             <ProjectCard key={p.id} project={p} variant="preview" />
           ))}

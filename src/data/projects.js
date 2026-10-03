@@ -1,3 +1,4 @@
+import aroven from "../assets/projects/aroven.jpg";
 import autovoyce from "../assets/projects/autovoyce.jpg";
 import convo from "../assets/projects/convo.jpg";
 import wordwave from "../assets/projects/wordwave.jpg";
@@ -9,9 +10,21 @@ import cursor from "../assets/projects/cursor.jpg";
 // `live` is optional: no live link means no Live button.
 export const projects = [
   {
+    id: "aroven",
+    title: "Aroven",
+    featured: true,
+    image: aroven,
+    stack: "Workouts, nutrition, check-ins, coaching analytics",
+    previewStack: "Fitness tracking, coaching",
+    preview: "Track progress. Coach with clarity. One app for workouts, nutrition and check-ins.",
+    description:
+      "My first product. A fitness tracking and coaching platform for individuals and for coaches managing clients. Log workouts, track calories and macros (manually or AI-assisted), and do daily check-ins with weight, sleep, hydration, recovery and progress photos. Coaches get a dashboard with health scores, at-risk client alerts, roster analytics and program templates.",
+    live: "https://www.aroven.fit/",
+    liveLabel: "Website",
+  },
+  {
     id: "autovoyce",
     title: "AutoVoyce",
-    featured: true,
     image: autovoyce,
     stack: "FastAPI, LangChain, Pinecone, Gemini, ElevenLabs, AWS EC2, React",
     previewStack: "FastAPI, LangChain, Pinecone, Gemini, React",

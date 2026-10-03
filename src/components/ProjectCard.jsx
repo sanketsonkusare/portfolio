@@ -38,7 +38,7 @@ export default function ProjectCard({ project: p, variant = "full" }) {
         <div className="st">{p.stack}</div>
         <div className="lk">
           {p.live && <a href={p.live} {...ext}>{p.liveLabel ?? "Live"}</a>}
-          <a href={p.github} {...ext}>GitHub</a>
+          {p.github && <a href={p.github} {...ext}>GitHub</a>}
         </div>
       </div>
     </article>

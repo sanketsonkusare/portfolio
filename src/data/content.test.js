@@ -26,11 +26,23 @@ test("experience has four roles, newest first, DevRev is current", () => {
   assert.equal(experience.filter((e) => e.current).length, 1);
   for (const e of experience) assert.ok(e.logo && e.preview && e.summary && e.bullets.length > 0, e.id);
 });
-test("six projects, all with a GitHub https link; Hand Cursor Control has no live link", () => {
-  assert.equal(projects.length, 6);
-  for (const p of projects) assert.match(p.github, /^https:\/\/github\.com\//, p.id);
+test("seven projects, each with a GitHub or live https link; Hand Cursor Control has no live link", () => {
+  assert.equal(projects.length, 7);
+  for (const p of projects) {
+    assert.ok(p.github || p.live, p.id);
+    if (p.github) assert.match(p.github, /^https:\/\/github\.com\//, p.id);
+    if (p.live) assert.match(p.live, /^https:\/\//, p.id);
+  }
   assert.equal(projects.find((p) => p.id === "hand-cursor").live, undefined);
   assert.ok(!everything.includes("rickroll"));
+});
+test("Aroven is first, featured, links to aroven.fit and has no GitHub link", () => {
+  const a = projects[0];
+  assert.equal(a.title, "Aroven");
+  assert.equal(a.featured, true);
+  assert.equal(a.live, "https://www.aroven.fit/");
+  assert.equal(a.github, undefined);
+  assert.ok(a.description.includes("coach"));
 });
 test("exactly one featured project and it is first", () => {
   assert.equal(projects.filter((p) => p.featured).length, 1);

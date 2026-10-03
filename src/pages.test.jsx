@@ -52,9 +52,9 @@ test("Experience page has full detail and education", () => {
   assert.ok(html.includes("RS256 JWT"));
   assert.ok(html.includes("<h2>Education"));
 });
-test("Projects page lists all six projects", () => {
+test("Projects page lists all seven projects", () => {
   const html = page(<Projects />);
-  assert.equal(count(html, /class="card/g), 6);
+  assert.equal(count(html, /class="card/g), 7);
   assert.ok(!html.includes("rickroll"));
 });
 test("Footer shows email as an icon like the others, plus all four social links", () => {
