@@ -6,11 +6,7 @@ export default function Hero() {
   return (
     <div className="hero">
       <div className="load">
-        <div className="chip">
-          <span className="live" aria-hidden="true" />
-          Building at {profile.company}
-        </div>
-        <h1 className="grad">{profile.name}</h1>
+        <h1>{profile.name}</h1>
         <div className="role">{profile.title}</div>
         <div className="loc">{profile.location}</div>
         <p className="bio">
@@ -23,9 +19,7 @@ export default function Hero() {
           <SocialIcons />
         </div>
       </div>
-      <div className="photo-wrap">
-        <img className="photo load d2" src={profile.photo} alt={profile.name} width="172" height="172" fetchPriority="high" />
-      </div>
+      <img className="photo load d2" src={profile.photo} alt={profile.name} width="172" height="172" fetchPriority="high" />
     </div>
   );
 }

@@ -217,14 +217,3 @@ section.first{margin-top:36px}
   .hero h1{font-size:68px}
   .photo{width:380px;height:380px}
 }
-
-/* hero personality: status chip, gradient name, glow and offset ring behind the photo */
-.chip{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;padding:5px 12px 5px 10px;border:1px solid var(--line2);border-radius:99px;background:var(--card);color:var(--mut);font-size:13px;line-height:1.4}
-.chip .live{width:8px;height:8px;border-radius:50%;background:#3ecf8e;box-shadow:0 0 0 3px rgba(62,207,142,.18)}
-.hero h1.grad{background:linear-gradient(100deg,var(--ink) 35%,var(--acc) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;width:fit-content;padding-bottom:.08em}
-.photo-wrap{position:relative;flex:none;isolation:isolate}
-.photo-wrap::before{content:"";position:absolute;inset:-60%;z-index:-2;background:radial-gradient(closest-side,color-mix(in srgb,var(--acc) 42%,transparent) 0%,color-mix(in srgb,var(--acc) 22%,transparent) 42%,transparent 100%);filter:blur(10px);pointer-events:none}
-.photo-wrap::after{content:"";position:absolute;inset:0;z-index:-1;transform:translate(12px,12px);border:1.5px solid color-mix(in srgb,var(--acc) 55%,transparent);border-radius:22px;pointer-events:none}
-.photo{display:block}
-@media(min-width:1000px){.photo-wrap::after{border-radius:30px;transform:translate(16px,16px)}}
-@media(max-width:700px){.photo-wrap::after{transform:translate(9px,9px)}}
