@@ -29,6 +29,12 @@ test("Header has Experience, Projects, then the theme button", () => {
   assert.match(html, /href="\/experience"/);
   assert.match(html, /href="\/projects"/);
 });
+test("Header brand is the logo mark linking home, with an accessible name and no visible name text", () => {
+  const html = inRouter(<Header theme="dark" onToggle={() => {}} />);
+  assert.match(html, /<a[^>]*class="brand"[^>]*aria-label="Sanket Sonkusare, home"[^>]*href="\/"|<a[^>]*href="\/"[^>]*class="brand"[^>]*aria-label="Sanket Sonkusare, home"|<a[^>]*aria-label="Sanket Sonkusare, home"[^>]*class="brand"/);
+  assert.ok(html.includes('class="logo"'));
+  assert.ok(!html.includes(">Sanket Sonkusare<"));
+});
 test("Header marks the current page", () => {
   const html = inRouter(<Header theme="dark" onToggle={() => {}} />, "/projects");
   assert.match(html, /class="[^"]*\bon\b[^"]*"[^>]*href="\/projects"|href="\/projects"[^>]*class="[^"]*\bon\b/);

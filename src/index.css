@@ -23,7 +23,8 @@ img{max-width:100%}
 .progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--acc);z-index:80}
 header{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .bar{max-width:var(--w);margin:0 auto;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.brand{display:inline-flex;align-items:center}
+.logo{height:30px;width:auto;fill:var(--acc);display:block}
 .bar nav{display:flex;gap:4px;font-size:14px}
 .bar nav a{color:var(--mut);padding:7px 12px;border-radius:8px;transition:color .15s,background .15s}
 .bar nav a:hover{color:var(--ink);background:var(--accsoft)}
@@ -164,7 +165,6 @@ html[data-theme="light"] .hc{box-shadow:0 18px 44px rgba(0,0,0,.14)}
 @media(prefers-reduced-motion:reduce){.tl-fill{transition:none}.si,.hc{transition:none}}
 
 @media(max-width:700px){
-  .brand{font-size:14.5px}
   .bar{padding:0 16px}
   .bar nav{gap:0}
   .bar nav a{padding:7px 8px}
