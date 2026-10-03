@@ -16,8 +16,8 @@ export default function Hero() {
         </p>
         <div className="acts">
           <a className="btn p" href={profile.resumeUrl}>Download resume</a>
+          <SocialIcons />
         </div>
-        <SocialIcons />
       </div>
       <img className="photo load d2" src={profile.photo} alt={profile.name} width="172" height="172" fetchPriority="high" />
     </div>

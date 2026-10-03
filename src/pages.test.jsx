@@ -36,6 +36,13 @@ test("Home hero has the resume button, an email icon (no Email me button) and th
   assert.equal(count(html, /<div class="proof">/g), 1);
   assert.ok(html.includes("167"));
 });
+test("Home hero puts the icons on the same row as the resume button", () => {
+  const html = page(<Home />);
+  const row = html.match(/<div class="acts">(.*?)<img class="photo/s)?.[1] ?? "";
+  assert.ok(row.includes("Download resume"), "resume button in the actions row");
+  assert.ok(row.includes('class="soc'), "icons in the same row");
+  assert.ok(row.indexOf("Download resume") < row.indexOf('class="soc'));
+});
 test("Experience page has full detail and education", () => {
   const html = page(<Experience />);
   assert.ok(html.includes("RS256 JWT"));
