@@ -88,6 +88,11 @@ test("ProjectCard full variant hides GitHub when there is no repo", () => {
   assert.ok(html.includes(">Website<"));
   assert.ok(!html.includes(">GitHub<"));
 });
+test("ProjectCard shows extra links such as the Aroven web app", () => {
+  const html = inRouter(<ProjectCard project={projects[0]} variant="full" />);
+  assert.ok(html.includes(">Try the web app<"));
+  assert.ok(html.includes('href="https://web.aroven.fit/"'));
+});
 test("ProjectCard full variant uses liveLabel when present", () => {
   const html = inRouter(<ProjectCard project={projects.find((p) => p.id === "github-wrapper")} variant="full" />);
   assert.ok(html.includes(">npm<"));

@@ -21,6 +21,7 @@ export const projects = [
       "My first product. A fitness tracking and coaching platform for individuals and for coaches managing clients. Log workouts, track calories and macros (manually or AI-assisted), and do daily check-ins with weight, sleep, hydration, recovery and progress photos. Coaches get a dashboard with health scores, at-risk client alerts, roster analytics and program templates.",
     live: "https://www.aroven.fit/",
     liveLabel: "Website",
+    extraLinks: [{ label: "Try the web app", href: "https://web.aroven.fit/" }],
   },
   {
     id: "autovoyce",

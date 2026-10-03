@@ -39,6 +39,9 @@ export default function ProjectCard({ project: p, variant = "full" }) {
         <div className="lk">
           {p.live && <a href={p.live} {...ext}>{p.liveLabel ?? "Live"}</a>}
           {p.github && <a href={p.github} {...ext}>GitHub</a>}
+          {p.extraLinks?.map((l) => (
+            <a key={l.href} href={l.href} {...ext}>{l.label}</a>
+          ))}
         </div>
       </div>
     </article>
