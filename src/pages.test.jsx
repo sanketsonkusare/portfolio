@@ -43,6 +43,10 @@ test("Home hero puts the icons on the same row as the resume button", () => {
   assert.ok(row.includes('class="soc'), "icons in the same row");
   assert.ok(row.indexOf("Download resume") < row.indexOf('class="soc'));
 });
+test("Education and Tools use the two-column list layout on wide screens", () => {
+  const html = page(<Home />);
+  assert.equal(count(html, /class="rows cols"/g), 2);
+});
 test("Experience page has full detail and education", () => {
   const html = page(<Experience />);
   assert.ok(html.includes("RS256 JWT"));

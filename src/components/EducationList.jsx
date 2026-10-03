@@ -4,7 +4,7 @@ const gem = { viewBox: "0 0 24 24", width: 16, height: 16, fill: "none", stroke:
 
 export default function EducationList() {
   return (
-    <div className="rows">
+    <div className="rows cols">
       {education.map((e) => (
         <div className="row edu" key={e.school}>
           <div className="k">{e.dates}</div>
