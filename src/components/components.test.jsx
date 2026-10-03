@@ -43,6 +43,18 @@ test("SocialIcons renders four external links with a handle card each", () => {
   assert.equal(count(html, /role="tooltip"/g), 4);
 });
 
+test("SocialIcons links describe themselves with their hover card for screen readers", () => {
+  const html = renderToStaticMarkup(<SocialIcons />);
+  const ids = [...html.matchAll(/aria-describedby="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(ids.length, 4);
+  assert.equal(new Set(ids).size, 4);
+  for (const id of ids) assert.ok(html.includes(`id="${id}"`), id);
+});
+test("ProjectCard screenshots are decorative so the title is not read twice", () => {
+  const html = inRouter(<ProjectCard project={projects[0]} variant="preview" />);
+  assert.match(html, /<img[^>]*alt=""/);
+});
+
 test("Timeline summary mode shows four logos and previews, no bullet lists", () => {
   const html = inRouter(<Timeline items={experience} />);
   for (const c of ["DevRev", "Scrobits", "Manastik", "Rubixe"]) assert.ok(html.includes(`alt="${c} logo"`), c);

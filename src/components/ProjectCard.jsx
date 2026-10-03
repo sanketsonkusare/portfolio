@@ -6,7 +6,7 @@ export default function ProjectCard({ project: p, variant = "full" }) {
   const cls = p.featured ? "card wide" : "card";
   const image = (
     <div className="im">
-      <img src={p.image} alt={p.title} loading="lazy" />
+      <img src={p.image} alt="" loading="lazy" />
     </div>
   );
   const title = (

@@ -46,13 +46,14 @@ export function useScrollFill(ref) {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", layout);
     window.addEventListener("load", layout);
-    const fonts = document.fonts?.ready?.then(layout);
+    let alive = true;
+    document.fonts?.ready?.then(() => alive && layout());
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", layout);
       window.removeEventListener("load", layout);
-      void fonts;
+      alive = false;
     };
   }, [ref]);
 }

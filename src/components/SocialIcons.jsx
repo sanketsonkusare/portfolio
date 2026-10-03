@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useId, useRef } from "react";
 import { socials } from "../data/socials.js";
 import { clampShift } from "../lib/clampShift.js";
 
@@ -34,6 +34,7 @@ const glyphs = {
 function SocialLink({ social }) {
   const card = useRef(null);
   const link = useRef(null);
+  const cardId = useId();
 
   // Keep the card inside the screen: measure when it is about to show.
   const place = () => {
@@ -58,11 +59,12 @@ function SocialLink({ social }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${social.label} profile`}
+      aria-describedby={cardId}
       onPointerEnter={place}
       onFocus={place}
     >
       {glyphs[social.id](20)}
-      <span ref={card} className="hc" role="tooltip">
+      <span ref={card} id={cardId} className="hc" role="tooltip">
         <span className="hh">
           <span className="hi">{glyphs[social.id](20)}</span>
           <span>
