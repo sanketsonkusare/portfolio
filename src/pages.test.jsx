@@ -28,10 +28,11 @@ test("Home previews three projects and links to the full pages", () => {
   assert.match(html, /href="\/projects"[^>]*>All projects</);
   assert.match(html, /href="\/experience"[^>]*>Full experience</);
 });
-test("Home hero has resume and email actions and the four-stat proof row", () => {
+test("Home hero has the resume button, an email icon (no Email me button) and the four-stat proof row", () => {
   const html = page(<Home />);
   assert.match(html, /href="\/resume\.pdf"[^>]*>Download resume</);
-  assert.match(html, /href="mailto:sanketsonkusare01@gmail\.com"/);
+  assert.match(html, /aria-label="Email me"/);
+  assert.ok(!html.includes(">Email me<"));
   assert.equal(count(html, /<div class="proof">/g), 1);
   assert.ok(html.includes("167"));
 });
@@ -45,9 +46,11 @@ test("Projects page lists all six projects", () => {
   assert.equal(count(html, /class="card/g), 6);
   assert.ok(!html.includes("rickroll"));
 });
-test("Footer has Email me and all four social links", () => {
+test("Footer shows email as an icon like the others, plus all four social links", () => {
   const html = page(<Footer />);
-  assert.ok(html.includes(">Email me<"));
+  assert.ok(!html.includes(">Email me<"));
+  assert.match(html, /aria-label="Email me"/);
+  assert.ok(html.includes('href="mailto:sanketsonkusare01@gmail.com"'));
   assert.equal(count(html, /target="_blank"/g), 4);
 });
 

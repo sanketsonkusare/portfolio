@@ -10,7 +10,6 @@ export default function Footer() {
           <span>{profile.location}</span>
         </div>
         <div className="r">
-          <a className="btn p" href={`mailto:${profile.email}`}>Email me</a>
           <SocialIcons small up />
         </div>
       </div>

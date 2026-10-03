@@ -16,7 +16,6 @@ export default function Hero() {
         </p>
         <div className="acts">
           <a className="btn p" href={profile.resumeUrl}>Download resume</a>
-          <a className="btn" href={`mailto:${profile.email}`}>Email me</a>
         </div>
         <SocialIcons />
       </div>

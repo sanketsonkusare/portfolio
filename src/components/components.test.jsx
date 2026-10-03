@@ -34,20 +34,24 @@ test("Header marks the current page", () => {
   assert.match(html, /class="[^"]*\bon\b[^"]*"[^>]*href="\/projects"|href="\/projects"[^>]*class="[^"]*\bon\b/);
 });
 
-test("SocialIcons renders four external links with a handle card each", () => {
+test("SocialIcons renders an email icon first, then four external profile links, each with a card", () => {
   const html = renderToStaticMarkup(<SocialIcons />);
   assert.equal(count(html, /target="_blank"/g), 4);
   assert.equal(count(html, /rel="noopener noreferrer"/g), 4);
+  assert.match(html, /<a[^>]*aria-label="Email me"/);
+  assert.ok(html.indexOf('aria-label="Email me"') < html.indexOf('aria-label="GitHub profile"'));
+  assert.ok(html.includes('href="mailto:sanketsonkusare01@gmail.com"'));
+  assert.ok(html.includes("sanketsonkusare01@gmail.com</em>"));
   for (const label of ["GitHub profile", "X profile", "LinkedIn profile", "Instagram profile"]) assert.ok(html.includes(`aria-label="${label}"`), label);
   for (const s of ["@sanketsonkusare", "@sassysanket", "in/sanketsonkusare", "Source code for my projects.", "Fitness and life outside work."]) assert.ok(html.includes(s), s);
-  assert.equal(count(html, /role="tooltip"/g), 4);
+  assert.equal(count(html, /role="tooltip"/g), 5);
 });
 
 test("SocialIcons links describe themselves with their hover card for screen readers", () => {
   const html = renderToStaticMarkup(<SocialIcons />);
   const ids = [...html.matchAll(/aria-describedby="([^"]+)"/g)].map((m) => m[1]);
-  assert.equal(ids.length, 4);
-  assert.equal(new Set(ids).size, 4);
+  assert.equal(ids.length, 5);
+  assert.equal(new Set(ids).size, 5);
   for (const id of ids) assert.ok(html.includes(`id="${id}"`), id);
 });
 test("ProjectCard screenshots are decorative so the title is not read twice", () => {

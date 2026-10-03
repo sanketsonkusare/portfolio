@@ -16,7 +16,7 @@ Replace the current playful, particle-background portfolio with a simple, profes
 - Single centred column, max width 800px, 24px side padding. Font Geist (fallback Inter, system-ui). Dark by default, light via toggle. One blue accent. Hairline dividers.
 - Label-left rows (9rem label column). Cards lift 4px and zoom image on hover. Scroll progress bar at the top.
 - Header: name on the left; Experience, Projects, then a theme icon button (sun in dark, moon in light) on the right. No other floating controls.
-- Footer on every page, full-width bar: Email me button plus GitHub, X, LinkedIn, Instagram icons, each with a hover/focus card (handle plus a one-line description), clamped inside the viewport.
+- Footer on every page, full-width bar: an email icon (first) plus GitHub, X, LinkedIn, Instagram icons, all styled alike, each with a hover/focus card (handle plus a one-line description), clamped inside the viewport.
 - Experience timeline: vertical line connecting dots; line fills with the accent as the page scrolls; dots light up when reached. Company logos (DevRev, Scrobits, Manastik, Rubixe) in white rounded tiles. Education uses university logos.
 - Motion: hero fade-in on load; hover and scroll-linked effects only. `prefers-reduced-motion` disables all of it.
 
