@@ -4,6 +4,9 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
 import Header from "./Header.jsx";
+import GitHubActivity from "./GitHubActivity.jsx";
+import WorkCard from "./WorkCard.jsx";
+import { work } from "../data/work.js";
 import SocialIcons from "./SocialIcons.jsx";
 import Timeline from "./Timeline.jsx";
 import ProjectCard from "./ProjectCard.jsx";
@@ -112,4 +115,28 @@ test("ProjectCard preview variant links to /projects and shows the featured tag"
   assert.match(html, /href="\/projects"/);
   assert.ok(html.includes("Featured"));
   assert.ok(html.includes("card wide"));
+});
+
+test("GitHubActivity draws one cell per day, a total and a legend", () => {
+  const days = Array.from({ length: 10 }, (_, i) => ({ date: `2026-09-${String(20 + i).padStart(2, "0")}`, count: i, level: Math.min(4, i) }));
+  const html = renderToStaticMarkup(<GitHubActivity username="sanketsonkusare" data={{ total: 378, days }} />);
+  assert.equal(count(html, /<rect /g), 10);
+  assert.ok(html.includes("378 contributions in the last year"));
+  assert.match(html, /role="img"[^>]*aria-label="378 GitHub contributions in the last year"|aria-label="378 GitHub contributions in the last year"[^>]*role="img"/);
+  assert.ok(html.includes("Less") && html.includes("More"));
+  assert.ok(html.includes("9 contributions on Sep 29, 2026"));
+});
+test("GitHubActivity shows an empty year while loading", () => {
+  const html = renderToStaticMarkup(<GitHubActivity username="sanketsonkusare" />);
+  assert.equal(count(html, /<rect /g), 365);
+  assert.ok(html.includes("Loading contributions"));
+});
+
+test("Selected work has a pose card (Manastik) and a voice assistant card (Scrobits), each with a labelled animation", () => {
+  assert.equal(work.length, 2);
+  const html = renderToStaticMarkup(<>{work.map((w) => <WorkCard key={w.id} item={w} />)}</>);
+  assert.ok(html.includes("Manastik") && html.includes("Scrobits"));
+  assert.equal(count(html, /role="img"/g), 2);
+  assert.match(html, /aria-label="[^"]*pose[^"]*"/i);
+  assert.match(html, /aria-label="[^"]*voice[^"]*"/i);
 });

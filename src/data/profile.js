@@ -15,12 +15,8 @@ export const profile = {
     after:
       ". At DevRev, I build the connectors and workflows that bring customer data from warehouses like BigQuery and Snowflake into the platform. Before that, I built multi-agent RAG systems at Scrobits.",
   },
-  proof: [
-    { value: "167", label: "datasets registered, none failed", source: "DevRev lakehouse workflow" },
-    { value: "3 to 1", label: "connector snap-ins replaced by one workflow", source: "BigQuery, Snowflake, PostgREST" },
-    { value: "95%", label: "query routing accuracy", source: "Scrobits support chatbot" },
-    { value: "40%", label: "lower response latency", source: "Scrobits support chatbot" },
-  ],
+  // "Currently" line under the location in the hero.
+  currently: { before: "Currently building ", link: { label: "Aroven", href: "https://www.aroven.fit/" }, after: " and learning to scale AI architectures." },
   beyondCode: {
     label: "Outside work",
     text: "Fitness is a big part of my life: I won a silver medal in university bodybuilding. I also play the flute, which is how I switch off after a long day of building.",

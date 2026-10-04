@@ -50,6 +50,10 @@ h2 a:hover{text-decoration:underline}
 .hero h1{font-size:38px;line-height:1.1;letter-spacing:-.035em;font-weight:700}
 .hero .role{margin-top:8px;font-size:17px;color:var(--ink)}
 .hero .loc{color:var(--faint);font-size:14.5px;margin-top:2px}
+.hero .cur{margin-top:12px;color:var(--mut);font-size:14.5px;line-height:1.5}
+.hero .cur .dot{width:8px;height:8px;border-radius:50%;background:#3dd68c;box-shadow:0 0 0 3px color-mix(in srgb,#3dd68c 22%,transparent);margin-right:9px;display:inline-block;vertical-align:1px}
+.hero .cur a{color:var(--ink);font-weight:550;text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:3px}
+.hero .cur a:hover{text-decoration-color:var(--acc)}
 .hero .bio{margin-top:20px;color:var(--mut);font-size:16px;max-width:30em}
 .hero .bio b{color:var(--ink);font-weight:550}
 .photo{width:172px;height:172px;flex:none;border-radius:22px;object-fit:cover;border:1px solid var(--line2);background:var(--card)}
@@ -62,13 +66,26 @@ h2 a:hover{text-decoration:underline}
 .load.d2{animation-delay:.08s}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-/* proof row */
-.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
-.proof b{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
-.proof span{display:block;margin-top:6px;color:var(--mut);font-size:13.5px;line-height:1.4}
-.proof small{display:block;margin-top:4px;color:var(--faint);font-size:12.5px}
 
 /* rows (experience, tools, about) */
+/* GitHub activity */
+.gh{max-width:980px}
+.ghs{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ghs::-webkit-scrollbar{display:none}
+.ghg{display:block;width:100%;min-width:700px;height:auto}
+.ghg text{fill:var(--faint);font-size:9.5px;font-family:inherit}
+.ghg rect{transition:opacity .4s var(--ease)}
+.ghg:not(.on) rect{opacity:.6}
+.lv0{fill:var(--line);background:var(--line)}
+.lv1{fill:color-mix(in srgb,var(--acc) 30%,var(--bg));background:color-mix(in srgb,var(--acc) 30%,var(--bg))}
+.lv2{fill:color-mix(in srgb,var(--acc) 55%,var(--bg));background:color-mix(in srgb,var(--acc) 55%,var(--bg))}
+.lv3{fill:color-mix(in srgb,var(--acc) 78%,var(--bg));background:color-mix(in srgb,var(--acc) 78%,var(--bg))}
+.lv4{fill:var(--acc);background:var(--acc)}
+.ghf{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px 20px;margin-top:12px;color:var(--mut);font-size:13.5px}
+.ghf a{color:var(--acc)}
+.leg{display:inline-flex;align-items:center;gap:4px;color:var(--faint);font-size:12.5px}
+.leg i{display:inline-block;width:11px;height:11px;border-radius:2.5px}
+.leg i:first-child{margin-left:4px}.leg i:last-child{margin-right:4px}
 .rows{border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:var(--kw) 1fr;gap:8px 28px;padding:20px 0;border-bottom:1px solid var(--line)}
 .row .k{color:var(--faint);font-size:14px;padding-top:2px}
@@ -96,6 +113,12 @@ html[data-theme="light"] .card:hover{box-shadow:0 14px 34px rgba(0,0,0,.09)}
 .card .st{color:var(--faint);font-size:13px;margin-top:auto;padding-top:8px}
 .card .lk{display:flex;gap:14px;font-size:13.5px;color:var(--acc);padding-top:6px}
 .tag{font-size:11.5px;font-weight:600;color:var(--mut);border:1px solid var(--line2);padding:1px 8px;border-radius:99px;margin-left:8px;vertical-align:1px}
+.card.work .im{aspect-ratio:16/10;background:#0b0d12}
+.card.work .loop{display:block;width:100%;height:100%}
+.card.work:hover .im .loop{transform:none}
+.card .org{display:flex;align-items:center;gap:8px;color:var(--faint);font-size:13.5px}
+.card .org .lg{width:22px;height:22px;border-radius:6px;background:#fff;display:grid;place-items:center;flex:none}
+.card .org .lg img{width:17px;height:17px;object-fit:contain}
 .card.wide{grid-column:1/-1;flex-direction:row}
 .card.wide .im{width:52%;aspect-ratio:auto;flex:none}
 .card.wide .bd{padding:22px 24px;justify-content:center}
@@ -172,7 +195,6 @@ html[data-theme="light"] .hc{box-shadow:0 18px 44px rgba(0,0,0,.14)}
   .hero{flex-direction:column-reverse;gap:22px;padding-top:36px}
   .photo{width:132px;height:132px}
   .hero h1{font-size:32px}
-  .proof{grid-template-columns:1fr 1fr}
   .row{grid-template-columns:1fr;gap:2px}
   .grid{grid-template-columns:1fr}
   .card.wide{flex-direction:column}.card.wide .im{width:100%;aspect-ratio:16/8.4}
@@ -192,8 +214,6 @@ section.first{margin-top:36px}
   .hero .loc{font-size:15.5px}
   .hero .bio{font-size:18px;max-width:34em;margin-top:24px}
   .photo{width:300px;height:300px;border-radius:30px}
-  .proof{margin-top:64px;padding-top:32px;gap:40px}
-  .proof b{font-size:34px}
   .row p,.row ul{max-width:46em}
   h2{font-size:24px;margin-bottom:24px}
   .pagehead{padding-top:88px}.pagehead h1{font-size:44px}
