@@ -11,7 +11,8 @@ export const experience = [
     logo: devrev,
     dates: "Apr 2026 – Present",
     current: true,
-    preview: "Building connectors and workflows that bring customer data into the platform.",
+    preview:
+      "Building connectors and workflows that bring customer data into the platform. One workflow replaced three connector snap-ins and has registered 167 datasets without a failure.",
     summary:
       "Automation Squad engineer building the connectors and workflows that bring customer data into DevRev's platform.",
     bullets: [
@@ -27,7 +28,8 @@ export const experience = [
     company: "Scrobits Technologies",
     logo: scrobits,
     dates: "Aug 2025 – Mar 2026",
-    preview: "Agentic RAG and multi-agent assistants for enterprise customers.",
+    preview:
+      "Agentic RAG and multi-agent assistants for enterprise customers. The support chatbot routed queries with 95% accuracy and cut response latency by 40%.",
     summary: "Built production AI assistants and retrieval systems for enterprise customers.",
     bullets: [
       "Agentic enterprise RAG with FastAPI, LangGraph and Pinecone, covering multitenant search and human-in-the-loop escalation.",

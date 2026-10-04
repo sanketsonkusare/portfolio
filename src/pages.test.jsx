@@ -28,13 +28,17 @@ test("Home previews three projects and links to the full pages", () => {
   assert.match(html, /href="\/projects"[^>]*>All projects</);
   assert.match(html, /href="\/experience"[^>]*>Full experience</);
 });
-test("Home hero has the resume button, an email icon (no Email me button) and the four-stat proof row", () => {
+test("Home hero has the resume button and an email icon (no Email me button)", () => {
   const html = page(<Home />);
   assert.match(html, /href="\/resume\.pdf"[^>]*>Download resume</);
   assert.match(html, /aria-label="Email me"/);
   assert.ok(!html.includes(">Email me<"));
-  assert.equal(count(html, /<div class="proof">/g), 1);
-  assert.ok(html.includes("167"));
+});
+test("Home has no landing-page stat row; the numbers sit in the experience lines as sentences", () => {
+  const html = page(<Home />);
+  assert.ok(!html.includes('class="proof"'));
+  assert.match(html, /registered 167 datasets without a failure/);
+  assert.match(html, /95% accuracy/);
 });
 test("Home hero puts the icons on the same row as the resume button", () => {
   const html = page(<Home />);

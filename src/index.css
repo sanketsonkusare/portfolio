@@ -62,11 +62,6 @@ h2 a:hover{text-decoration:underline}
 .load.d2{animation-delay:.08s}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-/* proof row */
-.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
-.proof b{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
-.proof span{display:block;margin-top:6px;color:var(--mut);font-size:13.5px;line-height:1.4}
-.proof small{display:block;margin-top:4px;color:var(--faint);font-size:12.5px}
 
 /* rows (experience, tools, about) */
 .rows{border-top:1px solid var(--line)}
@@ -172,7 +167,6 @@ html[data-theme="light"] .hc{box-shadow:0 18px 44px rgba(0,0,0,.14)}
   .hero{flex-direction:column-reverse;gap:22px;padding-top:36px}
   .photo{width:132px;height:132px}
   .hero h1{font-size:32px}
-  .proof{grid-template-columns:1fr 1fr}
   .row{grid-template-columns:1fr;gap:2px}
   .grid{grid-template-columns:1fr}
   .card.wide{flex-direction:column}.card.wide .im{width:100%;aspect-ratio:16/8.4}
@@ -192,8 +186,6 @@ section.first{margin-top:36px}
   .hero .loc{font-size:15.5px}
   .hero .bio{font-size:18px;max-width:34em;margin-top:24px}
   .photo{width:300px;height:300px;border-radius:30px}
-  .proof{margin-top:64px;padding-top:32px;gap:40px}
-  .proof b{font-size:34px}
   .row p,.row ul{max-width:46em}
   h2{font-size:24px;margin-bottom:24px}
   .pagehead{padding-top:88px}.pagehead h1{font-size:44px}

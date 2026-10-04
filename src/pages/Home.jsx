@@ -12,15 +12,6 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <div className="proof">
-        {profile.proof.map((p) => (
-          <div key={p.label}>
-            <b>{p.value}</b>
-            <span>{p.label}</span>
-            <small>{p.source}</small>
-          </div>
-        ))}
-      </div>
       <Section title="Experience" link={{ to: "/experience", label: "Full experience" }}>
         <Timeline items={experience} />
       </Section>
