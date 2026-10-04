@@ -5,6 +5,8 @@ import { StaticRouter } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
 import Header from "./Header.jsx";
 import GitHubActivity from "./GitHubActivity.jsx";
+import WorkCard from "./WorkCard.jsx";
+import { work } from "../data/work.js";
 import SocialIcons from "./SocialIcons.jsx";
 import Timeline from "./Timeline.jsx";
 import ProjectCard from "./ProjectCard.jsx";
@@ -128,4 +130,13 @@ test("GitHubActivity shows an empty year while loading", () => {
   const html = renderToStaticMarkup(<GitHubActivity username="sanketsonkusare" />);
   assert.equal(count(html, /<rect /g), 365);
   assert.ok(html.includes("Loading contributions"));
+});
+
+test("Selected work has a pose card (Manastik) and a voice assistant card (Scrobits), each with a labelled animation", () => {
+  assert.equal(work.length, 2);
+  const html = renderToStaticMarkup(<>{work.map((w) => <WorkCard key={w.id} item={w} />)}</>);
+  assert.ok(html.includes("Manastik") && html.includes("Scrobits"));
+  assert.equal(count(html, /role="img"/g), 2);
+  assert.match(html, /aria-label="[^"]*pose[^"]*"/i);
+  assert.match(html, /aria-label="[^"]*voice[^"]*"/i);
 });

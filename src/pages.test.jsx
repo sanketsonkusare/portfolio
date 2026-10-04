@@ -24,7 +24,7 @@ test("Home order: Experience, Projects, Education, Tools, Beyond code", () => {
 });
 test("Home previews three projects and links to the full pages", () => {
   const html = page(<Home />);
-  assert.equal(count(html, /class="card/g), 3);
+  assert.equal(count(html, /<a class="card/g), 3);
   assert.match(html, /href="\/projects"[^>]*>All projects</);
   assert.match(html, /href="\/experience"[^>]*>Full experience</);
 });
@@ -85,4 +85,14 @@ test("Home shows GitHub activity between the hero and Experience, linking to the
   const g = html.indexOf(">GitHub activity<"), e = html.indexOf(">Experience<");
   assert.ok(g > 0 && g < e, "GitHub activity sits above Experience");
   assert.match(html, /href="https:\/\/github\.com\/sanketsonkusare"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*>@sanketsonkusare</);
+});
+
+test("Hero says what Sanket is doing now, linking Aroven", () => {
+  const html = page(<Home />);
+  assert.match(html, /Currently building <a[^>]*href="https:\/\/www\.aroven\.fit\/"[^>]*>Aroven<\/a> and learning to scale AI architectures/);
+});
+test("Home shows Selected work between Experience and Projects", () => {
+  const html = page(<Home />);
+  const e = html.indexOf(">Experience<"), w = html.indexOf(">Selected work<"), p = html.indexOf(">Projects<");
+  assert.ok(e > 0 && w > e && p > w);
 });

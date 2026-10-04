@@ -35,6 +35,7 @@ export const experience = [
       "Agentic enterprise RAG with FastAPI, LangGraph and Pinecone, covering multitenant search and human-in-the-loop escalation.",
       "Multi-agent support chatbot with 95% routing accuracy and 40% lower latency.",
       "Multi-agent system with LangChain and Gemini, connected through FastAPI and a WhatsApp webhook.",
+      "Production voice-powered AI assistant that changes the website based on users' spoken requests.",
     ],
   },
   {

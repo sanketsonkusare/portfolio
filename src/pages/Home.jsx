@@ -5,6 +5,8 @@ import ProjectCard from "../components/ProjectCard.jsx";
 import EducationList from "../components/EducationList.jsx";
 import ToolsList from "../components/ToolsList.jsx";
 import GitHubActivity from "../components/GitHubActivity.jsx";
+import WorkCard from "../components/WorkCard.jsx";
+import { work } from "../data/work.js";
 import { socials } from "../data/socials.js";
 import { experience } from "../data/experience.js";
 import { projects } from "../data/projects.js";
@@ -22,6 +24,13 @@ export default function Home() {
       </Section>
       <Section title="Experience" link={{ to: "/experience", label: "Full experience" }}>
         <Timeline items={experience} />
+      </Section>
+      <Section title="Selected work">
+        <div className="grid pv">
+          {work.map((w) => (
+            <WorkCard key={w.id} item={w} />
+          ))}
+        </div>
       </Section>
       <Section title="Projects" link={{ to: "/projects", label: "All projects" }}>
         <div className="grid pv">
