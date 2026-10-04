@@ -79,3 +79,10 @@ test("legacy and unknown URLs redirect to home", () => {
 test("real pages do not redirect", () => {
   for (const p of ["/", "/experience", "/projects"]) assert.equal(redirectFor(p), undefined, p);
 });
+
+test("Home shows GitHub activity between the hero and Experience, linking to the profile", () => {
+  const html = page(<Home />);
+  const g = html.indexOf(">GitHub activity<"), e = html.indexOf(">Experience<");
+  assert.ok(g > 0 && g < e, "GitHub activity sits above Experience");
+  assert.match(html, /href="https:\/\/github\.com\/sanketsonkusare"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*>@sanketsonkusare</);
+});

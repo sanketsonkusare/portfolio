@@ -4,14 +4,22 @@ import Timeline from "../components/Timeline.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 import EducationList from "../components/EducationList.jsx";
 import ToolsList from "../components/ToolsList.jsx";
+import GitHubActivity from "../components/GitHubActivity.jsx";
+import { socials } from "../data/socials.js";
 import { experience } from "../data/experience.js";
 import { projects } from "../data/projects.js";
 import { profile } from "../data/profile.js";
+
+const github = socials.find((s) => s.id === "github");
+const githubUser = github.href.split("/").pop();
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <Section title="GitHub activity" link={{ href: github.href, label: github.handle }}>
+        <GitHubActivity username={githubUser} />
+      </Section>
       <Section title="Experience" link={{ to: "/experience", label: "Full experience" }}>
         <Timeline items={experience} />
       </Section>

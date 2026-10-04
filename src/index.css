@@ -64,6 +64,24 @@ h2 a:hover{text-decoration:underline}
 
 
 /* rows (experience, tools, about) */
+/* GitHub activity */
+.gh{max-width:980px}
+.ghs{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ghs::-webkit-scrollbar{display:none}
+.ghg{display:block;width:100%;min-width:700px;height:auto}
+.ghg text{fill:var(--faint);font-size:9.5px;font-family:inherit}
+.ghg rect{transition:opacity .4s var(--ease)}
+.ghg:not(.on) rect{opacity:.6}
+.lv0{fill:var(--line);background:var(--line)}
+.lv1{fill:color-mix(in srgb,var(--acc) 30%,var(--bg));background:color-mix(in srgb,var(--acc) 30%,var(--bg))}
+.lv2{fill:color-mix(in srgb,var(--acc) 55%,var(--bg));background:color-mix(in srgb,var(--acc) 55%,var(--bg))}
+.lv3{fill:color-mix(in srgb,var(--acc) 78%,var(--bg));background:color-mix(in srgb,var(--acc) 78%,var(--bg))}
+.lv4{fill:var(--acc);background:var(--acc)}
+.ghf{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px 20px;margin-top:12px;color:var(--mut);font-size:13.5px}
+.ghf a{color:var(--acc)}
+.leg{display:inline-flex;align-items:center;gap:4px;color:var(--faint);font-size:12.5px}
+.leg i{display:inline-block;width:11px;height:11px;border-radius:2.5px}
+.leg i:first-child{margin-left:4px}.leg i:last-child{margin-right:4px}
 .rows{border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:var(--kw) 1fr;gap:8px 28px;padding:20px 0;border-bottom:1px solid var(--line)}
 .row .k{color:var(--faint);font-size:14px;padding-top:2px}
